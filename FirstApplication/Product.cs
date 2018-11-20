@@ -16,8 +16,9 @@ namespace FirstApplication
         public string ProductCategoryC;
         public double ProductPrice;
         public int ProductQuantity;
+        public int userID;
 
-        public Product(int productID, string productPic, string productName, string productDescription, string productCategoryA, string productCategoryB, string productCategoryC, double productPrice, int productQuantity)
+        public Product(int productID, string productPic, string productName, string productDescription, string productCategoryA, string productCategoryB, string productCategoryC, double productPrice, int productQuantity, int userID)
         {
             ProductID = productID;
             ProductPic = productPic;
@@ -28,6 +29,7 @@ namespace FirstApplication
             ProductCategoryC = productCategoryC;
             ProductPrice = productPrice;
             ProductQuantity = productQuantity;
+            this.userID = userID;
         }
     }
 }

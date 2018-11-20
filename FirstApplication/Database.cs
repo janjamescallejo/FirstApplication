@@ -53,24 +53,28 @@ namespace FirstApplication
             }
             return message;
         }
-        public string readpic()
+       
+        public List<string> readpics()
         {
+            var pictures = new List<string>();
             string ms;
             SqlCommand com;
-            string sql = "select * from imagetable where imageID = 201803";
-            com = new SqlCommand(sql,con);
+            string sql = "select * from imagetable";
+            com = new SqlCommand(sql, con);
             SqlDataReader read = com.ExecuteReader();
-            if(read.Read())
+            while (read.Read())
             {
-                byte[] pixar = (byte[])read["pic"];
+                byte[] pixar = (byte[])read.GetValue(1);
                 ms = Convert.ToBase64String(pixar, 0, pixar.Length);
-                return ms;
+                pictures.Add(ms);
             }
-            return null;
-            
+            return pictures;
+
         }
-        public Product readProduct()
+        public List<Product> readProduct()
         {
+
+            var products = new List<Product>();
             Product p;
                int ProductID;
           string ProductPic;
@@ -81,6 +85,7 @@ namespace FirstApplication
           string ProductCategoryC;
           double ProductPrice;
           int ProductQuantity;
+            int userID;
         SqlCommand com;
             string sql = "select * from products";
             com = new SqlCommand(sql, con);
@@ -98,10 +103,11 @@ namespace FirstApplication
                 ProductCategoryC = Convert.ToString(read.GetValue(6));
                 ProductPrice = Convert.ToDouble(read.GetValue(7));
                 ProductQuantity = Convert.ToInt32(read.GetValue(8));
-                p = new FirstApplication.Product(ProductID, ProductPic, ProductName, ProductDescription, ProductCategoryA, ProductCategoryB, ProductCategoryC, ProductPrice, ProductQuantity);
-                return p;
+                userID = Convert.ToInt32(read.GetValue(9));
+                p = new FirstApplication.Product(ProductID, ProductPic, ProductName, ProductDescription, ProductCategoryA, ProductCategoryB, ProductCategoryC, ProductPrice, ProductQuantity,userID);
+                products.Add(p);
             }
-            return null; 
+            return products; 
         }
         public void CloseDatabase()
         {
