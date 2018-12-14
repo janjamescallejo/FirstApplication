@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Threading;
 
 namespace FirstApplication
 {
@@ -12,34 +13,39 @@ namespace FirstApplication
     {
         List<Product> products;
         List<string> pictures;
-      
-        
+        UserAccount user;
+        protected void credentialCheck()
+        {
+            
+
+                if (Session["UserAccount"] != null)
+                {
+                    user = (UserAccount)Session["UserAccount"];
+                    UName.Text = "Welcome " + user.UName;
+                    LogInButton1.Visible = false;
+                    SignUpButton1.Visible = false;
+                    LogOutButton1.Visible = true;
+                }
+                else
+                {
+                    LogInButton1.Visible = true;
+                    SignUpButton1.Visible = true;
+                    LogOutButton1.Visible = false;
+                    UName.Text = "You are not logged in";
+                }
+              
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            if(Session["UserName"] != null)
-            {
-                UName.Text = "Welcome " + Session["UserName"].ToString();
-                Button3.Visible = false;
-                Button4.Visible = false;
-                Button6.Visible = true;
-            }
-            else
-            {
-                UName.Text = "You are not logged in";
-            }
+            credentialCheck();
             CopyrightLabel.Text = "©"+DateTime.Now.ToString("yyyy")+" Jan James Callejo All Rights Reserved";
-            Database x = new Database();
-            pictures = x.readpics();
-
-
-            x.CloseDatabase();
+            Database data=new Database();
+            pictures = data.readpics();
+            
+            products = data.readProduct();
+            
             LoadPictures();
-            Database y = new Database();
-            products = y.readProduct();
-
-            y.CloseDatabase();
             readProducts();
             //Combined.Text = "Your username is " + Username.Text + " Your password is " + Password.Text;
 
@@ -101,33 +107,7 @@ namespace FirstApplication
            
         }
 
-        protected void Submit_Click(object sender, EventArgs e)
-        {
-            Database c = new Database();
-            UserAccount user = c.ReadDatabase(Username.Text);
-            c.CloseDatabase();
-            try
-            {
-                if (user.uName.Equals(Username.Text))
-                {
-                    Combined.Text = "You are Registered";
-                    //UName.Text = "Welcome "+Username.Text;
-                    Session["UserName"] = Username.Text;
-                    UName.Text = "Welcome " + Session["UserName"].ToString();
-
-                }
-                else
-                {
-                    Combined.Text = "You are not Registered";
-                   
-                }
-            }
-            catch (Exception)
-            {
-                Combined.Text = "You are not Registered";
-            }
-        }
-
+       
         protected void Register_Click(object sender, EventArgs e)
         {
 
@@ -150,22 +130,26 @@ namespace FirstApplication
 
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void SignUpButton1_Click(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(
-            this.GetType(), "OpenWindow", "window.open('Webform2.aspx','_newtab');", true);
-
+            // Page.ClientScript.RegisterStartupScript(
+            //this.GetType(), "OpenWindow", "window.open('Webform2.aspx','_newtab');", true);
+            Response.Redirect("Webform2.aspx");
         }
 
-        protected void Button4_Click(object sender, EventArgs e)
+        protected void LogInButton1_Click(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(
-            this.GetType(), "OpenWindow", "window.open('Webform2.aspx','_newtab');", true);
+            // Page.ClientScript.RegisterStartupScript(
+            //this.GetType(), "OpenWindow", "window.open('Webform2.aspx','_newtab');", true);
+            Response.Redirect("Webform2.aspx");
         }
 
-        protected void Button6_Click(object sender, EventArgs e)
+        protected void LogOutButton1_Click(object sender, EventArgs e)
         {
-            Session["UserName"] = null;
+            Session["UserAccount"] = null;
+            Session["EditMode"] = null;
+            Response.Redirect("WebForm1.aspx");
+           
         }
     }
 }

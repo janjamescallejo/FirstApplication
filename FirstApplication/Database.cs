@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Text;
 
 namespace FirstApplication
 {
@@ -11,7 +12,9 @@ namespace FirstApplication
     {
         string connectionString;
         SqlConnection con;
-        public Database()
+        SqlDataReader read;
+        SqlCommand com;
+        private void OpenDatabase()
         {
             connectionString = @"Data Source=DESKTOP-VT3S0F4;Initial Catalog=test;Integrated Security=True";
             con = new SqlConnection(connectionString);
@@ -19,9 +22,10 @@ namespace FirstApplication
         }
         public UserAccount ReadDatabase(string userName)
         {
-            UserAccount ac;
+            OpenDatabase();
+            UserAccount ac=null;
             SqlCommand com;
-            SqlDataReader read;
+           
             string sql = "select * from useraccounts where uName = '"+userName+"'";
             com = new SqlCommand(sql, con);
             read = com.ExecuteReader();
@@ -31,49 +35,58 @@ namespace FirstApplication
                 string name = Convert.ToString(read.GetValue(1));
                 string pass = Convert.ToString(read.GetValue(2));
                 ac = new UserAccount(id, name, pass);
-                return ac;
+                if(ac!=null)
+                {
+                    break;
+                }
             }
-            return null;
+            CloseDatabase();
+            return ac;
 
         }
         public string writeDatabase(UserAccount ac)
         {
+            OpenDatabase();
             string message;
-            SqlCommand com;
-            string sql = "insert into useraccounts values ("+ac.id+",'"+ac.uName+"','"+ac.pWord+"')";
+           
+            string sql = "insert into useraccounts values ("+ac.Id+",'"+ac.UName+"','"+ac.PWord+"')";
             try
             {
                 com = new SqlCommand(sql, con);
                 com.ExecuteNonQuery();
-                message = "registration success";
+                message = "Registration is Successful.";
             }
-            catch(Exception e)
+            catch(Exception)
             {
-                message = "registration problem";
+                
+                message = "Registration has failed";
             }
+            CloseDatabase();
             return message;
         }
        
         public List<string> readpics()
         {
+            OpenDatabase();
             var pictures = new List<string>();
             string ms;
-            SqlCommand com;
+            
             string sql = "select * from imagetable";
             com = new SqlCommand(sql, con);
-            SqlDataReader read = com.ExecuteReader();
+            read = com.ExecuteReader();
             while (read.Read())
             {
                 byte[] pixar = (byte[])read.GetValue(1);
                 ms = Convert.ToBase64String(pixar, 0, pixar.Length);
                 pictures.Add(ms);
             }
+            CloseDatabase();
             return pictures;
 
         }
         public List<Product> readProduct()
         {
-
+            OpenDatabase();
             var products = new List<Product>();
             Product p;
                int ProductID;
@@ -86,10 +99,10 @@ namespace FirstApplication
           double ProductPrice;
           int ProductQuantity;
             int userID;
-        SqlCommand com;
+        
             string sql = "select * from products";
             com = new SqlCommand(sql, con);
-            SqlDataReader read = com.ExecuteReader();
+            read = com.ExecuteReader();
             while (read.Read())
             {
                 //byte[] pixar = (byte[])read["productPic"];
@@ -107,9 +120,82 @@ namespace FirstApplication
                 p = new FirstApplication.Product(ProductID, ProductPic, ProductName, ProductDescription, ProductCategoryA, ProductCategoryB, ProductCategoryC, ProductPrice, ProductQuantity,userID);
                 products.Add(p);
             }
+            CloseDatabase();
             return products; 
         }
-        public void CloseDatabase()
+        public List<Documents> readDocs()
+            {
+            OpenDatabase();
+            string document;
+            string filename;
+            string filetype;
+                var docs = new List<Documents>();
+            
+            string sql = "select * from documentations";
+            com = new SqlCommand(sql, con);
+            read = com.ExecuteReader();
+            while(read.Read())
+            {
+                filename = Convert.ToString(read.GetValue(0));
+                filetype = Convert.ToString(read.GetValue(1));
+                byte[] doc=(byte[])read.GetValue(2);
+                document = Encoding.ASCII.GetString(doc);
+                // document = Encoding.Unicode.GetString(doc);
+                //document = Encoding.UTF8.GetString(doc);
+
+
+                docs.Add(new Documents { Filename = filename, Filetype = filetype, Document = document });
+            }
+            CloseDatabase();
+            return docs;
+            }
+        public string updateAccount(UserAccount user)
+        {
+            string returnmessage;
+            OpenDatabase();
+            string sql = "update useraccounts set uName='"+user.UName +"', pWord='"+user.PWord+"' where userID="+user.Id;
+            try {
+                com = new SqlCommand(sql, con);
+                com.ExecuteNonQuery();
+
+                if (com.ExecuteNonQuery() <= 0)
+                    returnmessage = "Update Failed";
+                else
+                    returnmessage = "Update Succeeded";
+            }
+            catch(Exception)
+            {
+                returnmessage = "Update Failed";
+               
+            }
+            finally
+            {
+                CloseDatabase();
+               
+            }
+            return returnmessage;
+        }
+        public void deleteAccount(UserAccount user)
+        {
+            
+            OpenDatabase();
+            string sql = "delete from useraccounts where userID="+user.Id;
+            try
+            {
+                com = new SqlCommand(sql, con);
+                com.ExecuteNonQuery();
+
+               
+            }
+          
+            finally
+            {
+                CloseDatabase();
+
+            }
+            
+        }
+        private void CloseDatabase()
         {
             con.Close();
         }

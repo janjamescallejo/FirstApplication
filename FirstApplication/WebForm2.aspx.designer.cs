@@ -22,6 +22,15 @@ namespace FirstApplication {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Registration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Registration;
+        
+        /// <summary>
         /// Label5 control.
         /// </summary>
         /// <remarks>
@@ -112,22 +121,22 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.CheckBox RAgreeToTerms;
         
         /// <summary>
-        /// Button7 control.
+        /// LogInButton3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button7;
+        protected global::System.Web.UI.WebControls.Button LogInButton3;
         
         /// <summary>
-        /// Button8 control.
+        /// LogInButton2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button8;
+        protected global::System.Web.UI.WebControls.Button LogInButton2;
         
         /// <summary>
         /// RWarning control.
@@ -166,31 +175,31 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.Label UName;
         
         /// <summary>
-        /// Button3 control.
+        /// LogInButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button LogInButton1;
         
         /// <summary>
-        /// Button4 control.
+        /// SignUpButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Button SignUpButton1;
         
         /// <summary>
-        /// Button0 control.
+        /// LogOutButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button0;
+        protected global::System.Web.UI.WebControls.Button LogOutButton1;
         
         /// <summary>
         /// CopyrightLabel control.
@@ -202,22 +211,22 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.Label CopyrightLabel;
         
         /// <summary>
-        /// Label1 control.
+        /// SignInLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label SignInLabel1;
         
         /// <summary>
-        /// Label2 control.
+        /// SignInLabel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label SignInLabel2;
         
         /// <summary>
         /// SIUsername control.
@@ -229,13 +238,13 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.TextBox SIUsername;
         
         /// <summary>
-        /// Label3 control.
+        /// SignInLabel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label SignInLabel3;
         
         /// <summary>
         /// SIPassword control.
@@ -247,22 +256,22 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.TextBox SIPassword;
         
         /// <summary>
-        /// Button5 control.
+        /// SignInButton3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button5;
+        protected global::System.Web.UI.WebControls.Button SignInButton3;
         
         /// <summary>
-        /// Button6 control.
+        /// SignInButton2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button6;
+        protected global::System.Web.UI.WebControls.Button SignInButton2;
         
         /// <summary>
         /// SIWarning control.

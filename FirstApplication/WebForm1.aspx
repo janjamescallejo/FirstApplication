@@ -100,128 +100,32 @@
         <a href="#Buy">Buy</a>
         <a href="#Sell">Sell</a>
          <a href="#about">About Us</a>
-        <a href="Webform2.aspx">Account</a>
+        <a href="Webform4.aspx">Account</a>
                  </div>
          <div class="UserBox" style="border: thick double #FFFFFF; position: fixed; height: 70px; top: 9px; width: 228px; color:white; background-color:blue; right: 42px;" runat="server" visible="true" >
             
              <asp:Label ID="UName" runat="server"></asp:Label>
           
-             <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Log In" style="position:fixed; top: 45px; left: 1078px; width: 57px; "/>
+             <asp:Button ID="LogInButton1" runat="server" OnClick="LogInButton1_Click" Text="Log In" style="position:fixed; top: 45px; left: 1078px; width: 57px; "/>
                         
-             <asp:Button ID="Button4" runat="server" Text="Sign Up" style="position:fixed; top: 45px; left: 1158px; width: 58px; right: 618px;" OnClick="Button4_Click"/>
+             <asp:Button ID="SignUpButton1" runat="server" Text="Sign Up" style="position:fixed; top: 45px; left: 1158px; width: 58px; right: 618px;" OnClick="SignUpButton1_Click"/>
 
-             <asp:Button ID="Button6" runat="server" Text="Log Out" style="position:fixed; top: 44px; left: 1218px;" visible="false" OnClick="Button6_Click"/>
+             <asp:Button ID="LogOutButton1" runat="server" Text="Log Out" style="position:fixed; top: 44px; left: 1218px;" visible="false" OnClick="LogOutButton1_Click"/>
             
                         
          </div>
       </div>
  
-   
-<div runat="server"  id="LoginForm" style="border: thick double #000000; position: absolute; padding: inherit; background-color: #0000FF; margin-left: inherit; margin-right: inherit; margin-top: 0px; margin-bottom: inherit; top: 154px; color: #FFFFFF; right: 48px;" >
-    <p style="color: #FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp; Log In</p>
-    <p style="color: #FFFFFF" >&nbsp;&nbsp; Username:</p>
-    <asp:TextBox runat="server" id="Username" style="margin-left: 16px" /> 
-    <br /><br />
-    &nbsp;&nbsp;
-    <p style="color: #FFFFFF" >&nbsp;&nbsp;&nbsp; Password:</p>
-    <asp:TextBox runat="server" id="Password" style="margin-left: 15px" /> 
-    <br /><br />
-    <br /><br />
-    <asp:Button runat="server" id="Submit" text="Submit" OnClick="Submit_Click" style="margin-left: 15px" />
-    <asp:Button runat="server" id="Register" text="Register" OnClick="Register_Click" style="margin-left: 30px" Width="73px" />
-    <br /><br />
-    <asp:Label ID="Combined" runat="server" ForeColor="White" style="margin-left: 18px" Width="165px"></asp:Label>
-    
-</div>
-   
-
-         
-
-        
-      
-       
-       
-
-
-         
-        
-       
-       
-       
-
-
-         
-
-        
-      
-       
-       
-
-
-         
-        
-        
-       
-       
-
-
-         
-
-        
-      
-       
-       
-
-
-         
-        
+ 
         <div class="featured" style="position: absolute; width: 938px; top: 149px; left: 45px; height: 434px; background-color:blue;">
              <asp:Image ID="Image2" runat="server" CssClass="auto-style3" style="position:absolute; top: 26px; left: 58px; width: 265px; height: 80px;"/>
             <div runat="server" id="Product1" style="border-color: white; border-style: solid; width: 257px; position: absolute; left: 73px; height: 284px; background-color: blue; margin-top: 0px; top: 125px; color:white; ">
-        
-           
-     
-       
-        
-           
-     
             <asp:Label ID="ItemName1" runat="server" style="position:absolute; top: 29px; left: 26px; height: 22px; width: 186px;"></asp:Label>
-        
-           
-     
-       
-        
-     
-     
-              <asp:Label ID="ItemPrize1" runat="server" style="position:absolute; top: 240px; left: 33px; width: 158px; height: 23px;"></asp:Label>
-           
-     
-       
-        
-           
-     
-            <asp:Label ID="ItemQuantity1" runat="server" style="position:absolute; top: 201px; left: 29px; height: 24px; width: 167px;"></asp:Label>
-        
-           
-     
-       
-        
-     
-     
+            <asp:Label ID="ItemPrize1" runat="server" style="position:absolute; top: 240px; left: 33px; width: 158px; height: 23px;"></asp:Label>
+           <asp:Label ID="ItemQuantity1" runat="server" style="position:absolute; top: 201px; left: 29px; height: 24px; width: 167px;"></asp:Label>
             <asp:Image ID="ProductImage1" runat="server" style="position:absolute; top: 64px; left: 26px; height: 114px; width: 181px;"/>
-        
-           
-     
-           
-     
         </div>
-
-
-
-        
-   
-        
-         <div id="Product2" runat="server" style="border-color: white; position: absolute; background-color:blue; color:white; border-style: solid; width: 238px; top: 128px; left: 365px; height: 278px;">
+    <div id="Product2" runat="server" style="border-color: white; position: absolute; background-color:blue; color:white; border-style: solid; width: 238px; top: 128px; left: 365px; height: 278px;">
     
              <asp:Image ID="ProductImage2" runat="server" style="position:absolute; top: 56px; left: 18px; height: 114px; width: 192px;"/>
     
@@ -246,34 +150,6 @@
 
         </div>
        
-       
-
-
-         
-
-        
-      
-       
-       
-
-
-         
-        
-        
-       
-       
-
-
-         
-
-        
-      
-       
-       
-
-
-         
-        
         <div class="auto-style4" style="position: absolute; background-color: #0000FF; color: #FFFFFF;">
             <asp:TextBox ID="Searchbox" runat="server" style="position:absolute; top: 94px; left: 167px; width: 542px;"></asp:TextBox>
             <asp:Button ID="Button5" runat="server" Text="Search" style="position:absolute; margin-left: 20px; top: 94px; left: 710px; height: 24px;" Width="83px"/>
@@ -284,72 +160,12 @@
             <asp:Label ID="Label1" runat="server" Text="Search Products" style="position:absolute; top: 15px; left: 28px; height: 47px; width: 406px; font-size:60px"></asp:Label>
         </div>
        
-       
-
-
-         
-
-        
-      
-       
-       
-
-
-         
-        
-        
-       
-       
-
-
-         
-
-        
-      
-       
-       
-
-
-         
-        
         <div class="bottom" style="position: absolute; background-color: #000000; color: #FFFFFF;">
        
             <asp:Label ID="CopyrightLabel" runat="server" style="position:absolute; top: 101px; left: 543px;"></asp:Label>
        
         </div>
-       
-       
-
-
-         
-
-        
-      
-       
-       
-
-
-         
-        
-        
-       
-       
-
-
-         
-
-        
-      
-       
-       
-
-
-         
         
    </form>
-        
- 
-   
-    
     </body>
 </html>

@@ -73,12 +73,6 @@
         }
 
 
-        .auto-style5 {
-            top: 171px;
-            left: 485px;
-            width: 320px;
-            height: 471px;
-        }
 
 
     </style>
@@ -86,7 +80,7 @@
 <body style="background-color:white">
     <form id="form1" runat="server">
         
-        <div class="Registration auto-style5" style="position: absolute; background-color: #0000FF; color: #FFFFFF;" runat="server">
+        <div id="Registration" style="position: absolute; background-color: #0000FF; color: #FFFFFF; top: 171px; left: 485px; width: 320px; height: 471px;" runat="server">
             <asp:Label ID="Label5" runat="server" Text="User ID: " style="position:absolute; top: 77px; left: 40px;"></asp:Label>
             <asp:Label ID="Label4" runat="server" Text="Register" style="position:absolute; top: 28px; left: 35px; width: 255px; height: 35px;" Font-Size="XX-Large"></asp:Label>
             <asp:Label ID="RegUserID" runat="server" style="position:absolute; top: 76px; left: 120px;"></asp:Label>
@@ -96,9 +90,9 @@
             <asp:TextBox ID="RPassword" runat="server" style="position:absolute; top: 220px; left: 42px; width: 164px;" TextMode="Password"></asp:TextBox>
             <asp:Label ID="Label8" runat="server" Text="Confirm Password" style="position:absolute; top: 267px; left: 49px; width: 175px; height: 30px;" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="RConfirmPassword" runat="server" style="position:absolute; top: 301px; left: 51px; width: 153px;" TextMode="Password"></asp:TextBox>
-            <asp:CheckBox ID="RAgreeToTerms" runat="server" style="position:absolute; top: 346px; left: 53px;"/><p id="RAgreeStatement" style="position:absolute; top: 331px; left: 77px; width: 165px; ">Agree to <a href="#Terms" style="color:yellow;">Terms</a></p> 
-            <asp:Button ID="Button7" runat="server" Text="Clear" style="position:absolute; top: 387px; left: 45px; width: 89px;" OnClick="Button7_Click"/>
-            <asp:Button ID="Button8" runat="server" Text="Submit" style="position:absolute; top: 388px; left: 175px; width: 77px;" OnClick="Button8_Click"/>
+            <asp:CheckBox ID="RAgreeToTerms" runat="server" style="position:absolute; top: 346px; left: 53px;"/><p id="RAgreeStatement" style="position:absolute; top: 331px; left: 76px; width: 165px; ">Agree to <a href="WebForm3.aspx" style="color:yellow;" runat="server" onclick="OpenTerms">Terms</a></p> 
+            <asp:Button ID="LogInButton3" runat="server" Text="Clear" style="position:absolute; top: 387px; left: 45px; width: 89px;" OnClick="LogInButton3_Click"/>
+            <asp:Button ID="LogInButton2" runat="server" Text="Submit" style="position:absolute; top: 388px; left: 175px; width: 77px;" OnClick="LogInButton2_Click"/>
             <asp:Label ID="RWarning" runat="server" ForeColor="Yellow" style="position:absolute; top: 436px; left: 53px;" Visible="false"></asp:Label>
         </div>
         
@@ -109,15 +103,15 @@
         <a href="#Buy">Buy</a>
         <a href="#Sell">Sell</a>
          <a href="#about">About Us</a>
-        <a href="Webform2.aspx">Account</a>
+        <a href="Webform4.aspx">Account</a>
                  </div>
          <div class="UserBox" style="border: thick double #FFFFFF; position: fixed; height: 70px; top: 9px; width: 228px; color:white; background-color:blue; right: 42px;" runat="server" visible="true">
             
              <asp:Label ID="UName" runat="server"></asp:Label>
-                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Log In" style="position:fixed; top: 45px; left: 1078px; width: 57px; "/>
+                <asp:Button ID="LogInButton1" runat="server" OnClick="LogInButton1_Click" Text="Log In" style="position:fixed; top: 45px; left: 1078px; width: 57px; "/>
                         
-             <asp:Button ID="Button4" runat="server" Text="Sign Up" style="position:fixed; top: 45px; left: 1158px; width: 58px; right: 618px;" OnClick="Button4_Click"/>
-               <asp:Button ID="Button0" runat="server" Text="Log Out" style="position:fixed; top: 44px; left: 1218px;" visible="false" OnClick="Button0_Click"/>
+             <asp:Button ID="SignUpButton1" runat="server" Text="Sign Up" style="position:fixed; top: 45px; left: 1158px; width: 58px; right: 618px;" OnClick="SignUpButton1_Click"/>
+               <asp:Button ID="LogOutButton1" runat="server" Text="Log Out" style="position:fixed; top: 44px; left: 1218px;" visible="false" OnClick="LogOutButton1_Click"/>
 
             
          </div>
@@ -130,15 +124,19 @@
         </div>
        
         <div class="SignIn" style="position: absolute; top: 171px; left: 75px; height: 360px; width: 301px; background-color: #0000FF; color: #FFFFFF;" runat="server">
-            <asp:Label ID="Label1" runat="server" Text="Sign In " style="position:absolute; top: 23px; left: 30px; width: 251px; height: 54px;" Font-Size="XX-Large"></asp:Label>
-            <asp:Label ID="Label2" runat="server" Text="Username" style="position:absolute; top: 96px; left: 38px; width: 130px; height: 33px;" Font-Size="Large"></asp:Label>
+            <asp:Label ID="SignInLabel1" runat="server" Text="Sign In " style="position:absolute; top: 23px; left: 30px; width: 251px; height: 54px;" Font-Size="XX-Large"></asp:Label>
+            <asp:Label ID="SignInLabel2" runat="server" Text="Username" style="position:absolute; top: 96px; left: 38px; width: 130px; height: 33px;" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="SIUsername" runat="server" style="position:absolute; top: 132px; left: 43px; width: 208px; height: 20px;"></asp:TextBox>
-            <asp:Label ID="Label3" runat="server" Text="Password" style="position:absolute; top: 177px; left: 42px; width: 98px;" Font-Size="Large"></asp:Label>
+            <asp:Label ID="SignInLabel3" runat="server" Text="Password" style="position:absolute; top: 177px; left: 42px; width: 98px;" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="SIPassword" runat="server" style="position:absolute; top: 211px; left: 46px; width: 207px;" TextMode="Password"></asp:TextBox>
-            <asp:Button ID="Button5" runat="server" Text="Clear" style="position:absolute; top: 261px; left: 48px; width: 79px;" OnClick="Button5_Click"/>
-            <asp:Button ID="Button6" runat="server" Text="Submit" style="position:absolute; top: 260px; left: 167px; width: 78px;" OnClick="Button6_Click"/>
+            <asp:Button ID="SignInButton3" runat="server" Text="Clear" style="position:absolute; top: 261px; left: 48px; width: 79px; right: 174px;" OnClick="SignInButton3_Click"/>
+            <asp:Button ID="SignInButton2" runat="server" Text="Submit" style="position:absolute; top: 260px; left: 167px; width: 78px;" OnClick="SignInButton2_Click"/>
             <asp:Label ID="SIWarning" runat="server" style="position:absolute; top: 300px; left: 24px; width: 266px;" Visible="False" ForeColor="Yellow"></asp:Label>
         </div>
+       
+      
+       
+      
        
     </form>
 </body>
