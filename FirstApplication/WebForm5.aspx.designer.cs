@@ -10,7 +10,7 @@
 namespace FirstApplication {
     
     
-    public partial class WebForm4 {
+    public partial class WebForm5 {
         
         /// <summary>
         /// form1 control.
@@ -22,31 +22,76 @@ namespace FirstApplication {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// AccountsList control.
+        /// TagID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AccountsList;
+        protected global::System.Web.UI.WebControls.Label TagID;
         
         /// <summary>
-        /// ListName control.
+        /// Label8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ListName;
+        protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// SelectedBox control.
+        /// TagName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox SelectedBox;
+        protected global::System.Web.UI.WebControls.TextBox TagName;
+        
+        /// <summary>
+        /// Label9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
+        
+        /// <summary>
+        /// TagDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TagDescription;
+        
+        /// <summary>
+        /// tagClearButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button tagClearButton;
+        
+        /// <summary>
+        /// tagSubmitButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button tagSubmitButton;
+        
+        /// <summary>
+        /// tagLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tagLabel;
         
         /// <summary>
         /// Image1 control.
@@ -121,49 +166,40 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.Label CopyrightLabel;
         
         /// <summary>
-        /// AccountInfo_AccountName control.
+        /// UploadProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AccountInfo_AccountName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UploadProduct;
         
         /// <summary>
-        /// AccountInfo_AccountID control.
+        /// productUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AccountInfo_AccountID;
+        protected global::System.Web.UI.WebControls.Label productUpload;
         
         /// <summary>
-        /// AccountInfo_AccountDate control.
+        /// productDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AccountInfo_AccountDate;
+        protected global::System.Web.UI.WebControls.Label productDate;
         
         /// <summary>
-        /// EditButton control.
+        /// productID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EditButton;
-        
-        /// <summary>
-        /// DeleteButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteButton;
+        protected global::System.Web.UI.WebControls.Label productID;
         
         /// <summary>
         /// Label1 control.
@@ -175,49 +211,49 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// SBPButton control.
+        /// UploadProductTags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SBPButton;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UploadProductTags;
         
         /// <summary>
-        /// SSPButton control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SSPButton;
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// SACButton control.
+        /// tagList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SACButton;
+        protected global::System.Web.UI.WebControls.CheckBoxList tagList;
         
         /// <summary>
-        /// SAWButton control.
+        /// Chosen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SAWButton;
+        protected global::System.Web.UI.WebControls.Label Chosen;
         
         /// <summary>
-        /// SATButton control.
+        /// productName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SATButton;
+        protected global::System.Web.UI.WebControls.TextBox productName;
         
         /// <summary>
         /// Label2 control.
@@ -229,42 +265,6 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// ChosenProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ChosenProduct;
-        
-        /// <summary>
-        /// chosenProd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label chosenProd;
-        
-        /// <summary>
-        /// chosenEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button chosenEdit;
-        
-        /// <summary>
-        /// AdminControls control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AdminControls;
-        
-        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -274,39 +274,93 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// MAButton control.
+        /// productDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MAButton;
+        protected global::System.Web.UI.WebControls.TextBox productDescription;
         
         /// <summary>
-        /// SAAButton control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SAAButton;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
-        /// SAPButton control.
+        /// uploadPicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SAPButton;
+        protected global::System.Web.UI.WebControls.Button uploadPicture;
         
         /// <summary>
-        /// MAAButton control.
+        /// uploadedPicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MAAButton;
+        protected global::System.Web.UI.WebControls.Image uploadedPicture;
+        
+        /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
+        /// productQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox productQuantity;
+        
+        /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+        
+        /// <summary>
+        /// productPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox productPrice;
+        
+        /// <summary>
+        /// clearProductButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button clearProductButton;
+        
+        /// <summary>
+        /// submitProductButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submitProductButton;
     }
 }

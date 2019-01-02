@@ -60,7 +60,7 @@
            
             margin-top: 98px; 
             height: 1000px;
-            width: 100;
+           
            
         }
 
@@ -77,7 +77,7 @@
 
     </style>
 </head>
-<body style="background-color:white">
+<body style="background-color:white; overflow-x:hidden">
     <form id="form1" runat="server">
         
         <div id="Registration" style="position: absolute; background-color: #0000FF; color: #FFFFFF; top: 171px; left: 485px; width: 320px; height: 471px;" runat="server">
@@ -89,8 +89,8 @@
             <asp:Label ID="Label7" runat="server" Text="Password" style="position:absolute; top: 184px; left: 44px; width: 130px; height: 25px;" Font-Size="Large"></asp:Label>
             <asp:TextBox ID="RPassword" runat="server" style="position:absolute; top: 220px; left: 42px; width: 164px;" TextMode="Password"></asp:TextBox>
             <asp:Label ID="Label8" runat="server" Text="Confirm Password" style="position:absolute; top: 267px; left: 49px; width: 175px; height: 30px;" Font-Size="Large"></asp:Label>
-            <asp:TextBox ID="RConfirmPassword" runat="server" style="position:absolute; top: 301px; left: 51px; width: 153px;" TextMode="Password"></asp:TextBox>
-            <asp:CheckBox ID="RAgreeToTerms" runat="server" style="position:absolute; top: 346px; left: 53px;"/><p id="RAgreeStatement" style="position:absolute; top: 331px; left: 76px; width: 165px; ">Agree to <a href="WebForm3.aspx" style="color:yellow;" runat="server" onclick="OpenTerms">Terms</a></p> 
+            <asp:TextBox ID="RConfirmPassword" runat="server" style="position:absolute; top: 302px; left: 43px; width: 163px;" TextMode="Password"></asp:TextBox>
+            <asp:CheckBox ID="RAgreeToTerms" runat="server" style="position:absolute; top: 351px; left: 43px;"/><p id="RAgreeStatement" style="position:absolute; top: 334px; left: 68px; width: 165px; ">Agree to <a href="WebForm3.aspx" style="color:yellow;" runat="server" onclick="OpenTerms">Terms</a></p> 
             <asp:Button ID="LogInButton3" runat="server" Text="Clear" style="position:absolute; top: 387px; left: 45px; width: 89px;" OnClick="LogInButton3_Click"/>
             <asp:Button ID="LogInButton2" runat="server" Text="Submit" style="position:absolute; top: 388px; left: 175px; width: 77px;" OnClick="LogInButton2_Click"/>
             <asp:Label ID="RWarning" runat="server" ForeColor="Yellow" style="position:absolute; top: 436px; left: 53px;" Visible="false"></asp:Label>
@@ -100,10 +100,12 @@
          <a href="WebForm1.aspx"><asp:Image ID="Image1" runat="server" style=" position:fixed; margin-top:0; top: 12px; left: 10px; height: 75px; width: 137px; " /></a>
    
         <div class="menubar" id="menu" runat="server">
-        <a href="#Buy">Buy</a>
-        <a href="#Sell">Sell</a>
+        <a href="Webform6.aspx">Buy</a>
+        <a href="Webform5.aspx">Sell</a>
          <a href="#about">About Us</a>
         <a href="Webform4.aspx">Account</a>
+        <a href="Webform7.aspx">Cart[<asp:Label ID="cartCount" runat="server" Text="0"></asp:Label>]</a>
+
                  </div>
          <div class="UserBox" style="border: thick double #FFFFFF; position: fixed; height: 70px; top: 9px; width: 228px; color:white; background-color:blue; right: 42px;" runat="server" visible="true">
             

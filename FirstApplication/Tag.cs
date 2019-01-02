@@ -5,76 +5,76 @@ using System.Web;
 
 namespace FirstApplication
 {
-    public class UserAccount
+    public class Tag
     {
-        private string id;
-        private string uName;
-        private string pWord;
-        private string userType;
-        private DateTime userDate;
+        string tagID;
+        string tagName;
+        string tagDescription;
+        string userID;
+        DateTime tagDate;
 
-        public string Id
+        public string TagID
         {
             get
             {
-                return id;
+                return tagID;
             }
 
             set
             {
-                id = value;
+                tagID = value;
             }
         }
 
-        public string UName
+        public string TagName
         {
             get
             {
-                return uName;
+                return tagName;
             }
 
             set
             {
-                uName = value;
+                tagName = value;
             }
         }
 
-        public string PWord
+        public string TagDescription
         {
             get
             {
-                return pWord;
+                return tagDescription;
             }
 
             set
             {
-                pWord = value;
+                tagDescription = value;
             }
         }
 
-        public string UserType
+        public string UserID
         {
             get
             {
-                return userType;
+                return userID;
             }
 
             set
             {
-                userType = value;
+                userID = value;
             }
         }
 
-        public DateTime UserDate
+        public DateTime TagDate
         {
             get
             {
-                return userDate;
+                return tagDate;
             }
 
             set
             {
-                userDate = value;
+                tagDate = value;
             }
         }
     }

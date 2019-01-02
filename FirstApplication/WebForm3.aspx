@@ -50,7 +50,7 @@
            
             margin-top: 98px; 
             height: 1000px;
-            width: 100;
+           
            
         }
 
@@ -64,17 +64,19 @@
 
         </style>
 </head>
-<body style="background-color:white">
+<body style="background-color:white; overflow-x:hidden;">
     <form id="form1" runat="server">
         
     <div class="top" runat="server">
          <a href="WebForm1.aspx"><asp:Image ID="Image1" runat="server" style=" position:fixed; margin-top:0; top: 12px; left: 10px; height: 75px; width: 137px; " /></a>
    
         <div class="menubar" id="menu" runat="server">
-        <a href="#Buy">Buy</a>
-        <a href="#Sell">Sell</a>
+        <a href="Webform6.aspx">Buy</a>
+        <a href="Webform5.aspx">Sell</a>
          <a href="#about">About Us</a>
         <a href="Webform4.aspx">Account</a>
+         <a href="Webform7.aspx">Cart[<asp:Label ID="cartCount" runat="server" Text="0"></asp:Label>]</a>
+
                  </div>
          <div class="UserBox" style="border: thick double #FFFFFF; position: fixed; height: 70px; top: 9px; width: 228px; color:white; background-color:blue; right: 42px;" runat="server" visible="true">
             

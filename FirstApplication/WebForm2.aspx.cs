@@ -13,7 +13,14 @@ namespace FirstApplication
         List<string> pictures;
         Database data = new Database();
         UserAccount user;
+        static Random random = new Random();
         string editAccount;
+        protected string generateID(int length)
+        {
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         protected void credentialCheck()
         {
             if (Session["UserAccount"] != null)
@@ -60,7 +67,7 @@ namespace FirstApplication
         }
         protected void Submit()
         {
-            user = data.ReadDatabase(SIUsername.Text);
+            user = data.ReadAccount(SIUsername.Text);
             if (user.UName.Equals(SIUsername.Text) && user.PWord.Equals(SIPassword.Text))
             {
 
@@ -94,7 +101,7 @@ namespace FirstApplication
             CopyrightLabel.Text = "©" + DateTime.Now.ToString("yyyy") + " Jan James Callejo All Rights Reserved";
            
             pictures = data.readpics();
-            RegUserID.Text = DateTime.Now.ToString("yyMMddHHmm");
+            RegUserID.Text = "ACCOUNT"+generateID(5);
 
           
             LoadPictures();
@@ -178,13 +185,17 @@ namespace FirstApplication
             else
             {
                 string res;
-                UserAccount ua;
-               
-                int id = Convert.ToInt32(RegUserID.Text);
-                ua = new UserAccount(id, RUsername.Text, RPassword.Text);
+                UserAccount ua = new UserAccount();
+
+
+                ua.Id = RegUserID.Text;
+                ua.UName = RUsername.Text;
+                ua.PWord = RPassword.Text;
+                ua.UserDate = DateTime.Now;
+                ua.UserType = "Customer";
                 
                res= data.writeDatabase(ua);
-                RWarning.Visible = false;
+                RWarning.Visible = true;
                 RWarning.Text = res;
                 LOClear();
             }

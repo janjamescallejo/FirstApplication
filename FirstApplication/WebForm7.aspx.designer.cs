@@ -10,7 +10,7 @@
 namespace FirstApplication {
     
     
-    public partial class WebForm3 {
+    public partial class WebForm7 {
         
         /// <summary>
         /// form1 control.
@@ -94,21 +94,48 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.Label CopyrightLabel;
         
         /// <summary>
-        /// TermsAndConditions control.
+        /// transactionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TermsAndConditions;
+        protected global::System.Web.UI.WebControls.Label transactionLabel;
         
         /// <summary>
-        /// TaCBanner control.
+        /// transactionBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TaCBanner;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl transactionBox;
+        
+        /// <summary>
+        /// transactionContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl transactionContainer;
+        
+        /// <summary>
+        /// transactionList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView transactionList;
+        
+        /// <summary>
+        /// transactionID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label transactionID;
     }
 }

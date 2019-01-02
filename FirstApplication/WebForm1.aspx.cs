@@ -151,5 +151,16 @@ namespace FirstApplication
             Response.Redirect("WebForm1.aspx");
            
         }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            string searchQuery = Searchbox.Text;
+            string searchOption = searchOptionList.Text;
+            string[] searchInputs = new string[2];
+            searchInputs[0] = searchQuery;
+            searchInputs[1] = searchOption;
+            Session["searchInputs"] = searchInputs;
+            Response.Redirect("WebForm6.aspx");
+        }
     }
 }
