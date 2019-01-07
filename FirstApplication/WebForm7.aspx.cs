@@ -14,7 +14,9 @@ namespace FirstApplication
         Database data = new Database();
         Random random = new Random();
         static List<Transaction> transactionItems = new List<Transaction>();
-       
+        static string transactionItemID;
+        static TransactionDetails transactionDetails = new TransactionDetails();
+        static double totalPayable;
         protected void credentialCheck()
         {
             if (Session["UserAccount"] != null)
@@ -45,17 +47,20 @@ namespace FirstApplication
             if (Session["transactionList"] != null)
             {
                 transactionItems = (List<Transaction>)Session["transactionList"];
+                cartCount.Text = transactionItems.Count.ToString();
             }
             if (Session["chosenProduct"] != null)
             {
                 Product chosenProduct = (Product)Session["chosenProduct"];
                 Transaction item = new Transaction();
                 item.TransactionItem = chosenProduct;
-                item.TransactionID = transactionID.Text;
+                item.TransactionID = transactionItemID;
                 transactionItems.Add(item);
                
                 Session["chosenProduct"] = null;
             }
+            transactionDetails.TransactionID = transactionItemID;
+            transactionDetails.UserID = user.Id;
             LoadTransaction();
           
         }
@@ -63,6 +68,22 @@ namespace FirstApplication
         {
             transactionList.DataSource = transactionItems;
             transactionList.DataBind();
+        }
+        protected void ComputeTransaction()
+        {
+            
+            string totalPrice = "Total Price";
+            totalPayable = 0;
+            transactionDetails.TransactionID = transactionItemID;
+            transactionDetails.UserID = user.Id;
+            foreach(Transaction t in transactionItems)
+            {
+                totalPayable = t.TransactionPrice + totalPayable;
+            }
+            totalPriceLabel.Text = totalPrice+": " + totalPayable.ToString();
+            
+         
+
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -74,22 +95,27 @@ namespace FirstApplication
             LoadPictures();
             if (Session["transactionID"] == null)
             {
-
-                transactionID.Text = "BAG" + generateID(9);
-                Session["transactionID"] = transactionID.Text;
+                transactionItemID = "BAG" + generateID(9);
+                transactionID.Text = "Transaction ID is " +transactionItemID;
+               
+                Session["transactionID"] = transactionItemID;
             }
             else
             {
-                transactionID.Text = (string)Session["transactionID"];
+                transactionItemID = (string)Session["transactionID"];
+                transactionID.Text = "Transaction ID is " + transactionItemID;
 
             }
+
             if (!IsPostBack)
             {
                 
                 showTransaction();
                 Session["transactionList"] = transactionItems;
+                ComputeTransaction();
             }
-           
+            
+            
         }
         protected void LoadPictures()
         {
@@ -138,7 +164,8 @@ namespace FirstApplication
                     stock = i + 1;
                     chosenQuantity.Items.Add(stock.ToString());
                 }
-
+                int selectedIndex = transactionItem.TransactionQuantity - 1;
+                chosenQuantity.SelectedIndex = selectedIndex;
             }
         }
 
@@ -146,9 +173,7 @@ namespace FirstApplication
         {
            
             
-            /*  transactionItems.ElementAt(index).TransactionQuantity = count;
-              transactionItems.ElementAt(index).TransactionPrice = transactionItems.ElementAt(index).TransactionQuantity * transactionItems.ElementAt(index).TransactionItem.ProductPrice;
-              LoadTransaction();*/
+           
         }
 
         protected void quantityButton_Click(object sender, EventArgs e)
@@ -165,6 +190,50 @@ namespace FirstApplication
             totalPrice.Text = total.ToString();
             transactionItems.ElementAt(index).TransactionQuantity = count;
             transactionItems.ElementAt(index).TransactionPrice = total;
+            ComputeTransaction();
+        }
+
+        protected void transactionComputeButton_Click(object sender, EventArgs e)
+        {
+            double cash = Convert.ToDouble(transactionCash.Text);
+            double change = cash-totalPayable;
+            transactionDetails.TransactionCash = cash;
+            transactionDetails.TransactionChange = change;
+            transactionChangeLabel.Text = transactionChangeLabel.Text + change.ToString();
+        }
+
+        protected void transactionCancelButton_Click(object sender, EventArgs e)
+        {
+            for(int i=0;i<transactionItems.Count;i++)
+            {
+                transactionItems.RemoveAt(i);
+            }
+            Session["transactionID"] = null;
+            Session["transactionList"] = null;
+            transactionDetails = null;
+            Response.Redirect("WebForm7.aspx");
+        }
+
+        protected void RemoveButton_Click(object sender, EventArgs e)
+        {
+            var dbx = (Button)sender;
+            var item = (ListViewItem)dbx.NamingContainer;
+            var index = item.DataItemIndex;
+            transactionItems.RemoveAt(index);
+            LoadTransaction();
+            Response.Redirect("WebForm7.aspx");
+        }
+
+        protected void transactionConfirmButton_Click(object sender, EventArgs e)
+        {
+           foreach(Transaction t in transactionItems)
+            {
+                data.ConfirmTransaction(t);
+            }
+            data.ConfirmTransactionDetails(transactionDetails);
+            transactionStatus.Visible = true;
+            transactionStatus.Text = "Transaction Complete";
+
         }
     }
 }

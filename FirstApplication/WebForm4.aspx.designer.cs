@@ -193,24 +193,6 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.Button SSPButton;
         
         /// <summary>
-        /// SACButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SACButton;
-        
-        /// <summary>
-        /// SAWButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SAWButton;
-        
-        /// <summary>
         /// SATButton control.
         /// </summary>
         /// <remarks>
@@ -229,22 +211,22 @@ namespace FirstApplication {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// ChosenProduct control.
+        /// SACButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ChosenProduct;
+        protected global::System.Web.UI.WebControls.Button SACButton;
         
         /// <summary>
-        /// chosenProd control.
+        /// userChoice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label chosenProd;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userChoice;
         
         /// <summary>
         /// chosenEdit control.
@@ -254,6 +236,114 @@ namespace FirstApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button chosenEdit;
+        
+        /// <summary>
+        /// ProductTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProductTable;
+        
+        /// <summary>
+        /// chosenProductID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label chosenProductID;
+        
+        /// <summary>
+        /// chosenProductPicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image chosenProductPicture;
+        
+        /// <summary>
+        /// chosenProductName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label chosenProductName;
+        
+        /// <summary>
+        /// chosenProductTags control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label chosenProductTags;
+        
+        /// <summary>
+        /// chosenProductQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label chosenProductQuantity;
+        
+        /// <summary>
+        /// chosenProductPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label chosenProductPrice;
+        
+        /// <summary>
+        /// chosenDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button chosenDelete;
+        
+        /// <summary>
+        /// TagTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TagTable;
+        
+        /// <summary>
+        /// chosenTagID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label chosenTagID;
+        
+        /// <summary>
+        /// chosenTagName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label chosenTagName;
+        
+        /// <summary>
+        /// chosenTagDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label chosenTagDescription;
         
         /// <summary>
         /// AdminControls control.

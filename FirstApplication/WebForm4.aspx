@@ -68,22 +68,19 @@
              width: 2014px;
             height: 204px;
         }
+        table, td, tr, th{
 
-
-        .auto-style6 {
-            top: 146px;
-            left: 55px;
-            height: 173px;
-            width: 245px;
+         border: 1px solid black;
+         border-collapse:collapse;
         }
 
         </style>
 </head>
 <body style="overflow-x:hidden;">
     <form id="form1" runat="server">
-        <div id="AccountsList" style="position:absolute;  top: 160px; left: 511px; width: 337px; height: 512px; background-color:blue; color:white;" runat="server">
-        <asp:Label ID="ListName" runat="server" Text="" style="position:absolute; top: 17px; left: 122px;"></asp:Label>    
-            <asp:ListBox ID="SelectedBox" runat="server" style="position:absolute; top: 57px; left: 52px; width: 231px; height: 332px;" OnSelectedIndexChanged="SelectedBox_SelectedIndexChanged" AutoPostBack="true"></asp:ListBox>
+        <div id="AccountsList" style="position:absolute;  top: 164px; left: 456px; width: 286px; height: 409px; background-color:blue; color:white;" runat="server">
+        <asp:Label ID="ListName" runat="server" Text="" style="position:absolute; top: 15px; left: 29px;"></asp:Label>    
+            <asp:ListBox ID="SelectedBox" runat="server" style="position:absolute; top: 47px; left: 25px; width: 231px; height: 332px;" OnSelectedIndexChanged="SelectedBox_SelectedIndexChanged" AutoPostBack="true"></asp:ListBox>
         </div>
         
     <div class="top" runat="server">
@@ -126,24 +123,74 @@
         
         </div>
        
-        <div id="UserControls" style="position:absolute; background-color:blue; color:white; top: 454px; left: 39px; height: 336px; width: 306px;">
+        <div id="UserControls" style="position:absolute; background-color:blue; color:white; top: 454px; left: 39px; height: 277px; width: 306px;">
         
         <asp:Button ID="SBPButton" runat="server" Text="Check Bought Products" style="position:absolute; top: 122px; left: 49px; margin-top: 4px;"/>
         
         <asp:Button ID="SSPButton" runat="server" Text="Check Sold Products" style="position:absolute; top: 76px; left: 49px; width: 207px;" OnClick="SSPButton_Click"/>
         
-        <asp:Button ID="SACButton" runat="server" Text="Check Your Comments" style="position:absolute; top: 169px; left: 50px; width: 208px;" />
-        
-        <asp:Button ID="SAWButton" runat="server" Text="Check Your Wishlist" style="position:absolute; top: 221px; left: 49px; width: 205px;"/>
-        
-        <asp:Button ID="SATButton" runat="server" Text="Check Your Tags" style="position:absolute; top: 270px; left: 48px; width: 210px; height: 26px; margin-top: 2px;"/>
+        <asp:Button ID="SATButton" runat="server" Text="Check Your Tags" style="position:absolute; top: 166px; left: 48px; width: 210px; height: 26px; margin-top: 2px;" OnClick="SATButton_Click"/>
             <asp:Label ID="Label2" runat="server" Text="User Controls" style="position:absolute; top: 24px; left: 112px;"></asp:Label>
+        
+        <asp:Button ID="SACButton" runat="server" Text="Check Your Comments" style="position:absolute; top: 206px; left: 49px; width: 208px;" />
+        
         </div>
-        <div id="ChosenProduct" runat="server" style="position:absolute; background-color:blue; color:white; top: 159px; left: 1005px; height: 213px; width: 249px;">
-            <asp:Label ID="chosenProd" runat="server" Text="" style="position:absolute; top: 45px; left: 82px;"></asp:Label>
-            <asp:Button ID="chosenEdit" runat="server" Text="Edit" style="position:absolute; top: 171px; left: 194px;"/>
+        <div id="userChoice" runat="server" style="position:absolute; background-color:blue; color:white; top: 166px; left: 816px; height: 281px; width: 439px;">
+            <asp:Button ID="chosenEdit" runat="server" Text="Edit" style="position:absolute; top: 239px; left: 382px;"/>
+            <div id="ProductTable" runat="server" style="position:absolute; top: 41px; left: 27px; height: 167px; width: 389px; background-color:white; color:blue;" Visible="false">
+                <table style="width: 99%; height: 162px; " >
+                    <tr>
+                        <th colspan="6">Chosen Product</th>
+                    </tr>
+                    <tr>
+                        <th>ID</th>
+                       <th>Image</th>
+                        <th>Name</th>
+                        <th>Tags</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="chosenProductID" runat="server" Text="Label"></asp:Label></td>
+                        <td>
+                            <asp:Image ID="chosenProductPicture" runat="server" style=" height: 60px; width: 54px;"/>
+                            </td>
+                        <td>
+                            <asp:Label ID="chosenProductName" runat="server" Text="Label"></asp:Label></td>
+                        <td>
+                            <asp:Label ID="chosenProductTags" runat="server" Text="Label"></asp:Label></td>
+                        <td>
+                            <asp:Label ID="chosenProductQuantity" runat="server" Text="Label"></asp:Label></td>
+                        <td>
+                            <asp:Label ID="chosenProductPrice" runat="server" Text="Label"></asp:Label></td>
+                    </tr>
+                    </table>
+            </div>
+            <asp:Button ID="chosenDelete" runat="server" Text="Delete" style="position:absolute; top: 239px; left: 313px;"/>
+            <div id="TagTable" runat="server" style="position:absolute; top: 41px; left: 27px; height: 167px; width: 389px; background-color:white; color:blue;" Visible="false">
+            <table>
+                <tr>
+                    <th colspan="3">Chosen Tag</th>
+                    </tr>
+                <tr>
+                    <th>Tag ID</th>
+                    <th>Tag Name</th>
+                    <th>Tag Description</th>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="chosenTagID" runat="server" Text="Label"></asp:Label></td>
+                    <td>
+                        <asp:Label ID="chosenTagName" runat="server" Text="Label"></asp:Label></td>
+                    <td>
+                        <asp:Label ID="chosenTagDescription" runat="server" Text="Label"></asp:Label></td>
+
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div id="AdminControls" runat="server" style="position:absolute; background-color:blue; color:white; top: 464px; left: 1010px; height: 290px; width: 239px;">
+        <div id="AdminControls" runat="server" style="position:absolute; background-color:blue; color:white; top: 506px; left: 828px; height: 290px; width: 239px;">
             <asp:Label ID="Label3" runat="server" Text="Admin Controls" style="position:absolute; top: 28px; left: 75px;"></asp:Label>
             <asp:Button ID="MAButton" runat="server" Text="Make Announcements" style="position:absolute; top: 68px; left: 40px; width: 173px;"/>
             <asp:Button ID="SAAButton" runat="server" Text="See All Accounts" style="position:absolute; top: 116px; left: 40px; width: 171px;"/>

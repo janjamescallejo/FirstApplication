@@ -13,6 +13,7 @@ namespace FirstApplication
         List<Documents> docs;
         Database data = new Database();
         UserAccount user;
+        static List<Transaction> transactionItems = new List<Transaction>();
         protected void credentialCheck()
         {
             if (Session["UserAccount"] != null)
@@ -31,6 +32,14 @@ namespace FirstApplication
                 UName.Text = "You are not logged in";
             }
         }
+        protected void ShowTransaction()
+        {
+            if (Session["transactionList"] != null)
+            {
+                transactionItems = (List<Transaction>)Session["transactionList"];
+                cartCount.Text = transactionItems.Count.ToString();
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -42,6 +51,10 @@ namespace FirstApplication
             
             LoadPictures();
             LoadTerms();
+            if(!IsPostBack)
+            {
+                ShowTransaction();
+            }
         }
         protected void LoadTerms()
         {

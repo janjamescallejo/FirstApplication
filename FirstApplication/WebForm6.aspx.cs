@@ -19,8 +19,8 @@ namespace FirstApplication
         Random random = new Random();
         static List<UserAccount> accounts;
         static string[] searchInputs = new string[2];
-      
-       
+        static List<Transaction> transactionItems = new List<Transaction>();
+
         protected void credentialCheck()
         {
             if (Session["UserAccount"] != null)
@@ -109,6 +109,14 @@ namespace FirstApplication
             productList.DataSource = products;
             productList.DataBind();
         }
+        protected void ShowTransaction()
+        {
+            if (Session["transactionList"] != null)
+            {
+                transactionItems = (List<Transaction>)Session["transactionList"];
+                cartCount.Text = transactionItems.Count.ToString();
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             credentialCheck();
@@ -124,6 +132,7 @@ namespace FirstApplication
             {
                 LoadTags();
                 LoadProducts();
+                ShowTransaction();
 
             }
             if (searchInputs!=null)

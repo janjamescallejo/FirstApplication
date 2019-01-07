@@ -130,9 +130,7 @@ namespace FirstApplication
                 filetype = Convert.ToString(read.GetValue(1));
                 byte[] doc=(byte[])read.GetValue(2);
                 document = Encoding.ASCII.GetString(doc);
-                // document = Encoding.Unicode.GetString(doc);
-                //document = Encoding.UTF8.GetString(doc);
-
+              
 
                 docs.Add(new Documents { Filename = filename, Filetype = filetype, Document = document });
             }
@@ -143,7 +141,7 @@ namespace FirstApplication
         {
             string returnmessage;
             OpenDatabase();
-            string sql = "update useraccounts set uName='"+user.UName +"', pWord='"+user.PWord+"' where userID="+user.Id;
+            string sql = "update useraccounts set uName='"+user.UName +"', pWord='"+user.PWord+"' where userID='"+user.Id+"'";
             try {
                 com = new SqlCommand(sql, con);
                 com.ExecuteNonQuery();
@@ -170,14 +168,15 @@ namespace FirstApplication
         {
             OpenDatabase();
             var products = new List<Product>();
-            Product p=new Product();
+           
            
 
-            string sql = "select * from useraccounts inner join products on products.userID = "+user.Id;
+            string sql = "select * from products where userID = '"+user.Id+"'";
             com = new SqlCommand(sql, con);
             read = com.ExecuteReader();
             while (read.Read())
             {
+                Product p = new Product();
                 byte[] pixar = (byte[])read["productPic"];
                 p.ProductPic = Convert.ToBase64String(pixar, 0, pixar.Length);
                 p.ProductID = Convert.ToString(read["productID"]);
@@ -191,7 +190,7 @@ namespace FirstApplication
                 p.UserID = Convert.ToString(read["userID"]);
                 p.ProductDate = (DateTime)read["productDate"];
                 products.Add(p);
-               
+                
             }
             CloseDatabase();
             return products;
@@ -303,6 +302,53 @@ namespace FirstApplication
             }
             CloseDatabase();
             return Accounts;
+        }
+        private void updateProductQuantity(Product product, int chosenQuantity)
+        {
+            OpenDatabase();
+            string sql = "update products set productQuantity = productQuantity-"+chosenQuantity+" where productID='"+product.ProductID+"'";
+            try
+            {
+                com = new SqlCommand(sql, con);
+                com.ExecuteNonQuery();
+            }
+            finally
+            {
+                CloseDatabase();
+            }
+        }
+        private void insertTransactionItem(Transaction transaction)
+        {
+            OpenDatabase();
+            string sql = "insert into Bag values('"+transaction.TransactionID+"','"+transaction.TransactionItem.ProductID+"',"+transaction.TransactionQuantity+","+transaction.TransactionPrice+",'"+transaction.UserID+"')";
+            try
+            {
+                com = new SqlCommand(sql, con);
+                com.ExecuteNonQuery();
+            }
+            finally
+            {
+                CloseDatabase();
+            }
+        }
+        public void ConfirmTransaction(Transaction transaction)
+        {
+            updateProductQuantity(transaction.TransactionItem,transaction.TransactionQuantity);
+            insertTransactionItem(transaction);
+        }
+        public void ConfirmTransactionDetails(TransactionDetails transactionDetails)
+        {
+            OpenDatabase();
+            string sql = "insert into transactionDetails values('"+transactionDetails.TransactionID+"',"+transactionDetails.TransactionCash+","+transactionDetails.TransactionChange+",'"+transactionDetails.UserID+"')";
+            try
+            {
+                com = new SqlCommand(sql, con);
+                com.ExecuteNonQuery();
+            }
+            finally
+            {
+                CloseDatabase();
+            }
         }
         private void CloseDatabase()
         {

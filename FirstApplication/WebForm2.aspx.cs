@@ -15,6 +15,7 @@ namespace FirstApplication
         UserAccount user;
         static Random random = new Random();
         string editAccount;
+        static List<Transaction> transactionItems = new List<Transaction>();
         protected string generateID(int length)
         {
             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -85,6 +86,14 @@ namespace FirstApplication
 
             }
         }
+        protected void ShowTransaction()
+        {
+            if (Session["transactionList"] != null)
+            {
+                transactionItems = (List<Transaction>)Session["transactionList"];
+                cartCount.Text = transactionItems.Count.ToString();
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             credentialCheck();
@@ -94,6 +103,7 @@ namespace FirstApplication
             if(!Page.IsPostBack)
             {
                 EditMode();
+                ShowTransaction();
             }
 
            

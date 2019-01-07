@@ -69,8 +69,6 @@
             height: 204px;
         }
        
-        .auto-style1 {}
-       
         </style>
 </head>
 <body style="overflow-x:hidden;">
@@ -151,7 +149,7 @@
                     <td><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></td>
                     <td><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></td>
                     <td>
-                        <asp:Button ID="RemoveButton" runat="server" Text="Remove" /></td>
+                        <asp:Button ID="RemoveButton" runat="server" Text="Remove" OnClick="RemoveButton_Click"/></td>
                     </tr>
                 <tr>
                     <td>
@@ -166,6 +164,16 @@
             </div>
             <asp:Label ID="transactionID" runat="server" Text="Transaction ID: " style="position:absolute; font-size:larger; top: 56px; left: 40px;"></asp:Label>
             </div>
+        <div id ="transactionTotalBox" runat="server" style="position:absolute; top: 181px; left: 881px; height: 216px; width: 350px; background-color:blue; color:white;">
+            <asp:Label ID="totalPriceLabel" runat="server" Text="Total Price" style="position:absolute; top: 29px; left: 35px; width: 248px;"></asp:Label>
+            <asp:Label ID="Label6" runat="server" Text="Expected Cash: " style="position:absolute; top: 61px; left: 39px;"></asp:Label>
+            <asp:TextBox ID="transactionCash" runat="server" style="position:absolute; top: 60px; left: 155px;" ></asp:TextBox>
+            <asp:Label ID="transactionChangeLabel" runat="server" Text="Expected Change: " style="position:absolute; top: 95px; left: 38px; width: 244px;"></asp:Label>
+            <asp:Button ID="transactionConfirmButton" runat="server" Text="Confirm" style="position:absolute; top: 136px; left: 236px; width: 75px;" OnClick="transactionConfirmButton_Click"/>
+            <asp:Button ID="transactionCancelButton" runat="server" Text="Cancel" style="position:absolute; top: 134px; left: 36px; width: 65px;" OnClick="transactionCancelButton_Click" />
+            <asp:Button ID="transactionComputeButton" runat="server" Text="Compute" style="position:absolute; top: 135px; left: 129px; width: 75px;" OnClick="transactionComputeButton_Click" />
+            <asp:Label ID="transactionStatus" runat="server" Text="" style="position:absolute; top: 177px; left: 34px; width: 279px;" Visible="false"></asp:Label>
+        </div>
     </form>
 </body>
 </html>

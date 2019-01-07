@@ -14,6 +14,7 @@ namespace FirstApplication
         List<Product> products;
         List<string> pictures;
         UserAccount user;
+        static List<Transaction> transactionItems = new List<Transaction>();
         protected void credentialCheck()
         {
             
@@ -35,7 +36,14 @@ namespace FirstApplication
                 }
               
         }
-
+        protected void ShowTransaction()
+        {
+            if (Session["transactionList"] != null)
+            {
+                transactionItems = (List<Transaction>)Session["transactionList"];
+                cartCount.Text = transactionItems.Count.ToString();
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             credentialCheck();
@@ -47,7 +55,10 @@ namespace FirstApplication
             
             LoadPictures();
             readProducts();
-            //Combined.Text = "Your username is " + Username.Text + " Your password is " + Password.Text;
+            if(!IsPostBack)
+            {
+                ShowTransaction();
+            }
 
         }
         protected void LoadPictures()

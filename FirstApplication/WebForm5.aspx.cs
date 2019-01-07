@@ -19,6 +19,7 @@ namespace FirstApplication
         Database data = new Database();
         Random random = new Random();
         static string productPic;
+        static List<Transaction> transactionItems = new List<Transaction>();
         protected void credentialCheck()
         {
             if (Session["UserAccount"] != null)
@@ -56,6 +57,14 @@ namespace FirstApplication
 
 
         }
+        protected void ShowTransaction()
+        {
+            if (Session["transactionList"] != null)
+            {
+                transactionItems = (List<Transaction>)Session["transactionList"];
+                cartCount.Text = transactionItems.Count.ToString();
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             credentialCheck();
@@ -71,6 +80,7 @@ namespace FirstApplication
             if(!IsPostBack)
             {
                 LoadTags();
+                ShowTransaction();
             }
         }
        
