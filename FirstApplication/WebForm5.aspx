@@ -74,7 +74,7 @@
 </head>
 <body style="overflow-x:hidden;">
     <form id="form1" runat="server">
-        <div id="createTag" style="position:absolute; background-color:blue; color:white; top: 156px; left: 890px; width: 245px; height: 379px;">
+        <div id="createTag" runat="server" style="position:absolute; background-color:blue; color:white; top: 156px; left: 890px; width: 245px; height: 379px;">
 
             <asp:Label ID="TagID" runat="server" Text="" style="position:absolute; top: 44px; left: 26px;"></asp:Label>
              <asp:Label ID="Label8" runat="server" Text="Tag Name" style="position:absolute; top: 74px; left: 24px;"></asp:Label>

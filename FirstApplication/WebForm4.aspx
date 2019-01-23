@@ -136,23 +136,27 @@
         
         </div>
         <div id="userChoice" runat="server" style="position:absolute; background-color:blue; color:white; top: 166px; left: 816px; height: 281px; width: 439px;">
-            <asp:Button ID="chosenEdit" runat="server" Text="Edit" style="position:absolute; top: 239px; left: 382px;"/>
+            <asp:Button ID="chosenEdit" runat="server" Text="Edit" style="position:absolute; top: 239px; left: 382px;" OnClick="chosenEdit_Click"/>
             <div id="ProductTable" runat="server" style="position:absolute; top: 41px; left: 27px; height: 167px; width: 389px; background-color:white; color:blue;" Visible="false">
                 <table style="width: 99%; height: 162px; " >
                     <tr>
                         <th colspan="6">Chosen Product</th>
                     </tr>
-                    <tr>
+                     <tr>
                         <th>ID</th>
+                        <td colspan="4"><asp:Label ID="chosenProductID" runat="server" Text="Label"></asp:Label></td>
+                    </tr>
+                    <tr>
+                        
                        <th>Image</th>
                         <th>Name</th>
                         <th>Tags</th>
                         <th>Quantity</th>
                         <th>Price</th>
                     </tr>
+                   
                     <tr>
-                        <td>
-                            <asp:Label ID="chosenProductID" runat="server" Text="Label"></asp:Label></td>
+
                         <td>
                             <asp:Image ID="chosenProductPicture" runat="server" style=" height: 60px; width: 54px;"/>
                             </td>

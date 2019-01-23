@@ -101,6 +101,7 @@ namespace FirstApplication
             LoadAccount();
             if(!IsPostBack)
             {
+                Hider();
                 LoadList();
                 ShowTransaction();
             }
@@ -109,20 +110,21 @@ namespace FirstApplication
         }
         protected void LoadProduct()
         {
+            string[] displayTags = new string[3];
             List<Tag> tags = data.readTags();
             foreach(Tag t in tags)
             {
                 if(chosenProduct.ProductCategoryA.Equals(t.TagID))
                 {
-                    chosenProduct.ProductCategoryA = t.TagName;
+                    displayTags[0] = t.TagName;
                 }
                 if (chosenProduct.ProductCategoryB.Equals(t.TagID))
                 {
-                    chosenProduct.ProductCategoryB = t.TagName;
+                    displayTags[1] = t.TagName;
                 }
                 if (chosenProduct.ProductCategoryC.Equals(t.TagID))
                 {
-                    chosenProduct.ProductCategoryC = t.TagName;
+                    displayTags[2] = t.TagName;
                 }
             } 
             if(hasChosenProduct==true)
@@ -131,7 +133,7 @@ namespace FirstApplication
                 chosenProductID.Text = chosenProduct.ProductID;
                 chosenProductPicture.ImageUrl = "data:image/jpg;base64," + chosenProduct.ProductPic;
                 chosenProductName.Text = chosenProduct.ProductName;
-                chosenProductTags.Text = chosenProduct.ProductCategoryA + ", " + chosenProduct.ProductCategoryB + ", " + chosenProduct.ProductCategoryC;
+                chosenProductTags.Text = displayTags[0] + ", " + displayTags[1] + ", " + displayTags[2];
                 chosenProductQuantity.Text = chosenProduct.ProductQuantity.ToString();
                 chosenProductPrice.Text = chosenProduct.ProductPrice.ToString();
             }
@@ -159,8 +161,15 @@ namespace FirstApplication
         }
         protected void Hider()
         {
+            hasChosen = false;
             userTags = null;
             products = null;
+            int last= productnames.Count-1;
+            if(last>0)
+            {
+                productnames.RemoveRange(0, last);
+            }
+           
             ProductTable.Visible = false;
             TagTable.Visible = false;
         }
@@ -179,6 +188,7 @@ namespace FirstApplication
         {
             Session["UserAccount"] = null;
             Session["EditMode"] = null;
+           
             Response.Redirect("WebForm1.aspx");
         }
 
@@ -241,6 +251,22 @@ namespace FirstApplication
             hasChosen = true;
             choiceType = "Tags";
             LoadList();
+        }
+
+        protected void chosenEdit_Click(object sender, EventArgs e)
+        {
+            if(choiceType.Equals("Tags"))
+            {
+                Session["EditMode"] = "Tag";
+                Session["EditValue"] = chosenTag;
+                Response.Redirect("WebForm5.aspx");
+            }
+            if (choiceType.Equals("SoldProducts"))
+            {
+                Session["EditMode"] = "SoldProducts";
+                Session["EditValue"] = chosenProduct;
+                Response.Redirect("WebForm5.aspx");
+            }
         }
     }
 }

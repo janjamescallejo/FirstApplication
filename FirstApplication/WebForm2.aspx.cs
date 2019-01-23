@@ -215,6 +215,7 @@ namespace FirstApplication
         {
             Session["UserAccount"] = null;
             Session["EditMode"] = null;
+            
             Response.Redirect("WebForm1.aspx");
           
         }

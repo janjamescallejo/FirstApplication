@@ -19,6 +19,8 @@ namespace FirstApplication
         Database data = new Database();
         Random random = new Random();
         static string productPic;
+        static Product prod;
+        static Tag editTag;
         static List<Transaction> transactionItems = new List<Transaction>();
         protected void credentialCheck()
         {
@@ -48,13 +50,16 @@ namespace FirstApplication
         protected void LoadTags()
         {
             tags = data.readTags();
-            foreach(Tag t in tags)
+            foreach (Tag t in tags)
             {
                 displayTags.Add(t.TagName);
             }
             tagList.DataSource = displayTags;
             tagList.DataBind();
-
+          
+           
+                
+              
 
         }
         protected void ShowTransaction()
@@ -63,6 +68,67 @@ namespace FirstApplication
             {
                 transactionItems = (List<Transaction>)Session["transactionList"];
                 cartCount.Text = transactionItems.Count.ToString();
+            }
+        }
+        protected void EditMode()
+        {
+            string editKey = Session["EditMode"].ToString();
+            if (editKey.Equals("SoldProducts"))
+            {
+                createTag.Visible = false;
+                productUpload.Text = "Edit Product";
+                prod = (Product)Session["EditValue"];
+                productID.Text = prod.ProductID;
+                productName.Text=prod.ProductName;
+                productDescription.Text=prod.ProductDescription;
+                productPic=prod.ProductPic;
+                productQuantity.Text = prod.ProductQuantity.ToString();
+                productPrice.Text = prod.ProductPrice.ToString();
+                uploadedPicture.ImageUrl = "data:image/jpg;base64," + prod.ProductPic;
+                productDate.Text = prod.ProductDate.ToString("yyyy-MM-dd");
+                tags = data.readTags();
+                string[] chosenTags = new string[3];
+                foreach (Tag t in tags)
+                {
+                    if (t.TagID.Equals(prod.ProductCategoryA))
+                    {
+                        chosenTags[0] = t.TagName;
+                    }
+                    if (t.TagID.Equals(prod.ProductCategoryB))
+                    {
+                        chosenTags[1] = t.TagName;
+                    }
+                    if (t.TagID.Equals(prod.ProductCategoryC))
+                    {
+                        chosenTags[2] = t.TagName;
+                    }
+                }
+                foreach (ListItem item in tagList.Items)
+                {
+                  
+                    
+                    if (item.Text.Equals(chosenTags[0]))
+                    {
+                        item.Selected = true;
+                    }
+                    if (item.Text.Equals(chosenTags[1]))
+                    {
+                        item.Selected = true;
+                    }
+                    if (item.Text.Equals(chosenTags[2]))
+                    {
+                        item.Selected = true;
+                    }
+                }
+
+            }
+            else if(editKey.Equals("Tag"))
+            {
+                UploadProduct.Visible = false;
+            }
+            else
+            {
+                return;
             }
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -79,8 +145,10 @@ namespace FirstApplication
             
             if(!IsPostBack)
             {
+               
                 LoadTags();
                 ShowTransaction();
+                EditMode();
             }
         }
        
@@ -164,7 +232,7 @@ namespace FirstApplication
                         h++;
                     }
                 }
-                Product prod = new Product();
+                prod = new Product();
                 prod.ProductID = productID.Text;
                 prod.ProductName = productName.Text;
                 prod.ProductDescription = productDescription.Text;

@@ -37,7 +37,7 @@ namespace FirstApplication
                 SignUpButton1.Visible = true;
                 LogOutButton1.Visible = false;
                 UName.Text = "You are not logged in";
-               // Response.Redirect("Webform1.aspx");
+              
             }
         }
         protected string generateID(int length)
@@ -62,6 +62,26 @@ namespace FirstApplication
         {
             accounts = data.readAccounts();
             products = data.readProduct();
+           
+            showProduct();
+            
+        }
+        protected void searchProduct(string SearchQuery, string SearchOption)
+        {
+            products = data.readProduct();
+            if (SearchOption.Equals("Products"))
+            {
+                products = products.Where(o => o.ProductName.Contains(SearchQuery)).ToList();
+
+            }
+            if (SearchOption.Equals("Seller"))
+            {
+                products = products.Where(o => o.UserID.Contains(SearchQuery)).ToList();
+            }
+            showProduct();
+        }
+        protected void showProduct()
+        {
             foreach (Product p in products)
             {
                 foreach (Tag t in tags)
@@ -80,32 +100,14 @@ namespace FirstApplication
                     }
 
                 }
-                foreach(UserAccount a in accounts)
+                foreach (UserAccount a in accounts)
                 {
-                    if(p.UserID.Equals(a.Id))
+                    if (p.UserID.Equals(a.Id))
                     {
                         p.UserID = a.UName;
                     }
                 }
             }
-            showProduct();
-            
-        }
-        protected void searchProduct(string SearchQuery, string SearchOption)
-        {
-            if (SearchOption.Equals("Products"))
-            {
-                products = products.Where(o => o.ProductName.Contains(SearchQuery)).ToList();
-
-            }
-            if (SearchOption.Equals("Seller"))
-            {
-                products = products.Where(o => o.UserID.Contains(SearchQuery)).ToList();
-            }
-            showProduct();
-        }
-        protected void showProduct()
-        {
             productList.DataSource = products;
             productList.DataBind();
         }
@@ -126,19 +128,19 @@ namespace FirstApplication
             pictures = data.readpics();
             LoadPictures();
             searchInputs = (string[])Session["searchInputs"];
-           
 
+           
             if (!IsPostBack)
             {
                 LoadTags();
                 LoadProducts();
                 ShowTransaction();
-
+                if (searchInputs != null)
+                {
+                    searchProduct(searchInputs[0], searchInputs[1]);
+                }
             }
-            if (searchInputs!=null)
-            {
-                searchProduct(searchInputs[0], searchInputs[1]);
-            }
+           
         }
 
         protected void LoadPictures()
@@ -265,7 +267,7 @@ namespace FirstApplication
         {
             List<Product> temp=new List<Product>();
             List<Product> temp2=new List<Product>();
-
+            LoadProducts();
             foreach (ListItem item in tagList.Items)
             {
                 
@@ -286,7 +288,7 @@ namespace FirstApplication
             }
 
             //products = temp2.Distinct().ToList();
-            products = temp2;
+            products = temp2.Distinct().ToList();
             showProduct();
         }
 
