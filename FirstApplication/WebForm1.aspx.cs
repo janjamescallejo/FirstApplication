@@ -12,7 +12,7 @@ namespace FirstApplication
     public partial class WebForm1 : System.Web.UI.Page
     {
         List<Product> products;
-        List<string> pictures;
+       
         UserAccount user;
         static List<Transaction> transactionItems = new List<Transaction>();
         protected void credentialCheck()
@@ -48,13 +48,13 @@ namespace FirstApplication
         {
             credentialCheck();
             CopyrightLabel.Text = "©"+DateTime.Now.ToString("yyyy")+" Jan James Callejo All Rights Reserved";
-            Database data=new Database();
-            pictures = data.readpics();
+            //Database data=new Database();
+          
             
-            products = data.readProduct();
+           // products = data.readProduct();
             
             LoadPictures();
-            readProducts();
+           // readProducts();
             if(!IsPostBack)
             {
                 ShowTransaction();
@@ -64,10 +64,10 @@ namespace FirstApplication
         protected void LoadPictures()
         {
 
-        Image1.ImageUrl = "data:image/jpg;base64," + pictures.ElementAt(0);
-        Image2.ImageUrl = "data:image/jpg;base64," + pictures.ElementAt(1);
+        Image1.ImageUrl = "StoreLogo.jpg";
+       
         }
-            protected void readProducts()
+           protected void readProducts()
         {
             Random r = new Random();
             int index = r.Next(0, products.Count);

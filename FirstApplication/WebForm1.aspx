@@ -114,7 +114,7 @@
  
  
         <div class="featured" style="position: absolute; width: 938px; top: 149px; left: 45px; height: 434px; background-color:blue;">
-             <asp:Image ID="Image2" runat="server" CssClass="auto-style3" style="position:absolute; top: 26px; left: 58px; width: 265px; height: 80px;"/>
+            <asp:Label ID="Label2" runat="server" Text="Featured Products" style="position:absolute; top: 25px; left: 22px; height: 74px; width: 565px; color:white; font-size:60px;"></asp:Label>
             <div runat="server" id="Product1" style="border-color: white; border-style: solid; width: 257px; position: absolute; left: 73px; height: 284px; background-color: blue; margin-top: 0px; top: 125px; color:white; ">
             <asp:Label ID="ItemName1" runat="server" style="position:absolute; top: 29px; left: 26px; height: 22px; width: 186px;"></asp:Label>
             <asp:Label ID="ItemPrize1" runat="server" style="position:absolute; top: 240px; left: 33px; width: 158px; height: 23px;"></asp:Label>

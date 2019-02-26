@@ -31,3 +31,36 @@ c:\users\lenovo\documents\visual studio 2015\Projects\FirstApplication\FirstAppl
 c:\users\lenovo\documents\visual studio 2015\Projects\FirstApplication\FirstApplication\obj\Debug\FirstApplication.dll
 c:\users\lenovo\documents\visual studio 2015\Projects\FirstApplication\FirstApplication\obj\Debug\FirstApplication.pdb
 C:\Users\LENOVO\documents\visual studio 2015\Projects\FirstApplication\FirstApplication\bin\scripts\ApplicationInsights.config
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\scripts\ApplicationInsights.config
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\csc.exe
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\vbc.exe
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\VBCSCompiler.exe
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\FirstApplication.dll.config
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\FirstApplication.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\FirstApplication.pdb
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.AI.Web.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.ApplicationInsights.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.AI.Web.xml
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.ApplicationInsights.xml
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\obj\Debug\FirstApplication.csprojResolveAssemblyReference.cache
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\obj\Debug\FirstApplication.dll
+C:\Users\USER\Documents\GitHub\FirstApplication\FirstApplication\obj\Debug\FirstApplication.pdb

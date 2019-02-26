@@ -16,7 +16,7 @@ namespace FirstApplication
         SqlCommand com;
         private void OpenDatabase()
         {
-            connectionString = @"Data Source=DESKTOP-VT3S0F4;Initial Catalog=test;Integrated Security=True";
+            connectionString = @"Data Source=Janjamescallejo;Initial Catalog=storeProduction;Integrated Security=True";
             con = new SqlConnection(connectionString);
             con.Open();
         }
@@ -26,14 +26,15 @@ namespace FirstApplication
             UserAccount ac=new UserAccount();
             SqlCommand com;
            
-            string sql = "select * from useraccounts where uName = '"+userName+"'";
+            string sql = "select * from useraccounts where userName = '"+userName+"'";
             com = new SqlCommand(sql, con);
             read = com.ExecuteReader();
             while(read.Read())
             {
                 ac.Id = Convert.ToString(read["userID"]);
-                ac.UName = Convert.ToString(read["uName"]);
-                ac.PWord = Convert.ToString(read["pWord"]);
+                ac.UName = Convert.ToString(read["userName"]);
+                ac.PWord = Convert.ToString(read["userPassword"]);
+                ac.UserType = Convert.ToString(read["userType"]);
                 ac.UserDate = (DateTime)read["accountDate"];
                 
                 if(ac!=null)
@@ -66,25 +67,7 @@ namespace FirstApplication
             return message;
         }
        
-        public List<string> readpics()
-        {
-            OpenDatabase();
-            var pictures = new List<string>();
-            string ms;
-            
-            string sql = "select * from imagetable";
-            com = new SqlCommand(sql, con);
-            read = com.ExecuteReader();
-            while (read.Read())
-            {
-                byte[] pixar = (byte[])read.GetValue(1);
-                ms = Convert.ToBase64String(pixar, 0, pixar.Length);
-                pictures.Add(ms);
-            }
-            CloseDatabase();
-            return pictures;
-
-        }
+      
         public List<Product> readProduct()
         {
             OpenDatabase();
@@ -220,7 +203,7 @@ namespace FirstApplication
         {
             var tags = new List<Tag>();
             OpenDatabase();
-            string sql = "select * from productTags";
+            string sql = "select * from tags";
             com = new SqlCommand(sql, con);
             read = com.ExecuteReader();
             while(read.Read())
@@ -272,7 +255,7 @@ namespace FirstApplication
         public void uploadTag(Tag tag)
         {
             OpenDatabase();
-            string sql = "insert into productTags values('"+tag.TagID+"','"+tag.TagName+"','"+tag.TagDescription+"','"+tag.UserID+"','"+tag.TagDate.ToString("yyyy-MM-dd") +"')";
+            string sql = "insert into tags values('"+tag.TagID+"','"+tag.TagName+"','"+tag.TagDescription+"','"+tag.UserID+"','"+tag.TagDate.ToString("yyyy-MM-dd") +"')";
             try
             {
                 com = new SqlCommand(sql, con);

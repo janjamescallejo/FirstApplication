@@ -11,7 +11,7 @@ namespace FirstApplication
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
-        List<string> pictures;
+       
         UserAccount user;
         Database data = new Database();
         static List<string> productnames=new List<string>();
@@ -96,7 +96,7 @@ namespace FirstApplication
            
             CopyrightLabel.Text = "©" + DateTime.Now.ToString("yyyy") + " Jan James Callejo All Rights Reserved";
             
-            pictures = data.readpics();
+           
             LoadPictures();
             LoadAccount();
             if(!IsPostBack)
@@ -155,7 +155,7 @@ namespace FirstApplication
         protected void LoadPictures()
         {
 
-            Image1.ImageUrl = "data:image/jpg;base64," + pictures.ElementAt(0);
+            Image1.ImageUrl = "StoreLogo.jpg";
 
            
         }

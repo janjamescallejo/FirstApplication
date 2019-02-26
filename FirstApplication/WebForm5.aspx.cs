@@ -11,7 +11,7 @@ namespace FirstApplication
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
-        List<string> pictures;
+        
         List<string> chosenTags = new List<string>();
         static List<Tag> tags;
         List<string> displayTags = new List<string>();
@@ -20,7 +20,7 @@ namespace FirstApplication
         Random random = new Random();
         static string productPic;
         static Product prod;
-        static Tag editTag;
+        static string editKey;
         static List<Transaction> transactionItems = new List<Transaction>();
         protected void credentialCheck()
         {
@@ -72,7 +72,13 @@ namespace FirstApplication
         }
         protected void EditMode()
         {
-            string editKey = Session["EditMode"].ToString();
+            try {
+                editKey = Session["EditMode"].ToString();
+            }
+            catch(Exception)
+            {
+                return;
+            }
             if (editKey.Equals("SoldProducts"))
             {
                 createTag.Visible = false;
@@ -137,7 +143,7 @@ namespace FirstApplication
 
             CopyrightLabel.Text = "©" + DateTime.Now.ToString("yyyy") + " Jan James Callejo All Rights Reserved";
 
-            pictures = data.readpics();
+          
             LoadPictures();
             productDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             productID.Text = "PRODUCT" + generateID(5);
@@ -155,7 +161,7 @@ namespace FirstApplication
         protected void LoadPictures()
         {
 
-            Image1.ImageUrl = "data:image/jpg;base64," + pictures.ElementAt(0);
+            Image1.ImageUrl = "StoreLogo.jpg";
 
 
         }

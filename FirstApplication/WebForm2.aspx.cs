@@ -10,7 +10,7 @@ namespace FirstApplication
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        List<string> pictures;
+        
         Database data = new Database();
         UserAccount user;
         static Random random = new Random();
@@ -110,7 +110,7 @@ namespace FirstApplication
             
             CopyrightLabel.Text = "©" + DateTime.Now.ToString("yyyy") + " Jan James Callejo All Rights Reserved";
            
-            pictures = data.readpics();
+           
             RegUserID.Text = "ACCOUNT"+generateID(5);
 
           
@@ -121,8 +121,8 @@ namespace FirstApplication
         protected void LoadPictures()
         {
 
-            Image1.ImageUrl = "data:image/jpg;base64," + pictures.ElementAt(0);
-           // Image2.ImageUrl = "data:image/jpg;base64," + pictures.ElementAt(1);
+            Image1.ImageUrl = "StoreLogo.jpg";
+          
         }
         protected void SIClear()
         {

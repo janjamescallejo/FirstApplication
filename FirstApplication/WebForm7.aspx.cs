@@ -9,7 +9,7 @@ namespace FirstApplication
 {
     public partial class WebForm7 : System.Web.UI.Page
     {
-        List<string> pictures;
+       
         UserAccount user;
         Database data = new Database();
         Random random = new Random();
@@ -91,7 +91,7 @@ namespace FirstApplication
 
             CopyrightLabel.Text = "©" + DateTime.Now.ToString("yyyy") + " Jan James Callejo All Rights Reserved";
             transactionLabel.Text = user.UName + "'s Transaction";
-            pictures = data.readpics();
+           
             LoadPictures();
             if (Session["transactionID"] == null)
             {
@@ -120,7 +120,7 @@ namespace FirstApplication
         protected void LoadPictures()
         {
 
-            Image1.ImageUrl = "data:image/jpg;base64," + pictures.ElementAt(0);
+            Image1.ImageUrl = "StoreLogo.jpg";
 
 
         }

@@ -9,7 +9,7 @@ namespace FirstApplication
 {
     public partial class WebForm6 : System.Web.UI.Page
     {
-        List<string> pictures;
+       
         List<string> chosenTags = new List<string>();
         static List<Tag> tags;
         List<string> displayTags = new List<string>();
@@ -125,7 +125,7 @@ namespace FirstApplication
 
             CopyrightLabel.Text = "©" + DateTime.Now.ToString("yyyy") + " Jan James Callejo All Rights Reserved";
 
-            pictures = data.readpics();
+           
             LoadPictures();
             searchInputs = (string[])Session["searchInputs"];
 
@@ -146,7 +146,7 @@ namespace FirstApplication
         protected void LoadPictures()
         {
 
-            Image1.ImageUrl = "data:image/jpg;base64," + pictures.ElementAt(0);
+            Image1.ImageUrl = "StoreLogo.jpg";
 
 
         }
