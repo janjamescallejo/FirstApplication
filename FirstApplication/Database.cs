@@ -46,6 +46,32 @@ namespace FirstApplication
             return ac;
 
         }
+        public UserAccount ShowAccount(string userID)
+        {
+            OpenDatabase();
+            UserAccount ac = new UserAccount();
+            SqlCommand com;
+
+            string sql = "select * from useraccounts where userID = '" + userID + "'";
+            com = new SqlCommand(sql, con);
+            read = com.ExecuteReader();
+            while (read.Read())
+            {
+                ac.Id = Convert.ToString(read["userID"]);
+                ac.UName = Convert.ToString(read["userName"]);
+                ac.PWord = Convert.ToString(read["userPassword"]);
+                ac.UserType = Convert.ToString(read["userType"]);
+                ac.UserDate = (DateTime)read["accountDate"];
+
+                if (ac != null)
+                {
+                    break;
+                }
+            }
+            CloseDatabase();
+            return ac;
+
+        }
         public string writeDatabase(UserAccount ac)
         {
             OpenDatabase();
@@ -96,6 +122,35 @@ namespace FirstApplication
             CloseDatabase();
             return products; 
         }
+
+        public Product showProduct(string productName)
+        {
+            Product product=new Product();
+            OpenDatabase();
+            string sql = "select * from products where productName = '"+productName+"'";
+            com = new SqlCommand(sql, con);
+            read = com.ExecuteReader();
+            while (read.Read())
+            {
+                
+                byte[] pixar = (byte[])read["productPic"];
+                product.ProductPic = Convert.ToBase64String(pixar, 0, pixar.Length);
+                product.ProductID = Convert.ToString(read["productID"]);
+                product.ProductName = Convert.ToString(read["productName"]);
+                product.ProductDescription = Convert.ToString(read["productDescription"]);
+                product.ProductCategoryA = Convert.ToString(read["productCategoryA"]);
+                product.ProductCategoryB = Convert.ToString(read["productCategoryB"]);
+                product.ProductCategoryC = Convert.ToString(read["productCategoryC"]);
+                product.ProductPrice = Convert.ToDouble(read["productPrice"]);
+                product.ProductQuantity = Convert.ToInt32(read["productQuantity"]);
+                product.UserID = Convert.ToString(read["userID"]);
+                product.ProductDate = (DateTime)read["productDate"];
+              
+            }
+            CloseDatabase();
+            return product;
+        }
+
         public List<Documents> readDocs()
             {
             OpenDatabase();
@@ -251,9 +306,47 @@ namespace FirstApplication
                 CloseDatabase();
             }
         }
+        private static string output = null;
+        private string appostropheSeparator(string input)
+        {
 
+            string insert = "'";
+
+
+           
+            int index = input.IndexOf(@"'");
+            if (index < 0)
+                return output += input;
+            for (int i = 0; i < input.Length; i++)
+            {
+                output += input.Substring(i, 1);
+                if (i == index)
+                {
+                    output += insert;
+                    break;
+
+                }
+
+            }
+            int mindex = index + 1;
+
+            string input1 = null;
+
+            input1 = input.Substring(mindex, input.Length - mindex);
+
+        
+            if (input.Length - mindex > 0)
+                appostropheSeparator(input1);
+
+            return output;
+        }
         public void uploadTag(Tag tag)
         {
+            int index = tag.TagDescription.IndexOf(@"'");
+            if(index>0)
+            {
+                tag.TagDescription = appostropheSeparator(tag.TagDescription);
+            }
             OpenDatabase();
             string sql = "insert into tags values('"+tag.TagID+"','"+tag.TagName+"','"+tag.TagDescription+"','"+tag.UserID+"','"+tag.TagDate.ToString("yyyy-MM-dd") +"')";
             try
@@ -277,8 +370,8 @@ namespace FirstApplication
             {
                 UserAccount ac = new UserAccount();
                 ac.Id = Convert.ToString(read["userID"]);
-                ac.UName = Convert.ToString(read["uName"]);
-                ac.PWord = Convert.ToString(read["pWord"]);
+                ac.UName = Convert.ToString(read["userName"]);
+                ac.PWord = Convert.ToString(read["userPassword"]);
                 ac.UserDate = (DateTime)read["accountDate"];
                 Accounts.Add(ac);
                 
@@ -303,7 +396,7 @@ namespace FirstApplication
         private void insertTransactionItem(Transaction transaction)
         {
             OpenDatabase();
-            string sql = "insert into Bag values('"+transaction.TransactionID+"','"+transaction.TransactionItem.ProductID+"',"+transaction.TransactionQuantity+","+transaction.TransactionPrice+",'"+transaction.UserID+"')";
+            string sql = "insert into usertransaction values('"+transaction.TransactionID+"','"+transaction.TransactionItem.ProductID+"',"+transaction.TransactionQuantity+","+transaction.TransactionPrice+",'"+transaction.UserID+"')";
             try
             {
                 com = new SqlCommand(sql, con);
@@ -322,7 +415,7 @@ namespace FirstApplication
         public void ConfirmTransactionDetails(TransactionDetails transactionDetails)
         {
             OpenDatabase();
-            string sql = "insert into transactionDetails values('"+transactionDetails.TransactionID+"',"+transactionDetails.TransactionCash+","+transactionDetails.TransactionChange+",'"+transactionDetails.UserID+"')";
+            string sql = "insert into usertransactionDetails values('"+transactionDetails.TransactionID+"','"+transactionDetails.UserID+"',"+transactionDetails.TransactionCash+","+transactionDetails.TransactionChange+")";
             try
             {
                 com = new SqlCommand(sql, con);

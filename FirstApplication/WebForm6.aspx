@@ -160,7 +160,8 @@
                             <tr>
                                 <td rowspan="3">
                                     <asp:Image ID="Image2" runat="server" style="height:80px; width:70px;"/></td>
-                                <td ><%# Eval("ProductName")%></td>
+                                <td >
+                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="productDetailView"></asp:LinkButton></td>
                                 
                                 <td>
                                     <asp:Label ID="Label6" runat="server" Text=""></asp:Label></td>

@@ -59,6 +59,7 @@ namespace FirstApplication
                
                 Session["chosenProduct"] = null;
             }
+            
             transactionDetails.TransactionID = transactionItemID;
             transactionDetails.UserID = user.Id;
             LoadTransaction();
@@ -145,16 +146,17 @@ namespace FirstApplication
         {
             var transactionItem = (Transaction)e.Item.DataItem;
             Image productImage = e.Item.FindControl("Image2") as Image;
-            Label productName = e.Item.FindControl("Label1") as Label;
+           
             Label productPrice = e.Item.FindControl("Label2") as Label;
             Label totalPrice = e.Item.FindControl("Label3") as Label;
             DropDownList chosenQuantity = e.Item.FindControl("itemQuantity") as DropDownList;
             Label productTags = e.Item.FindControl("Label4") as Label;
-
+            LinkButton productNamee = e.Item.FindControl("LinkButton1") as LinkButton;
             if (e.Item.ItemType == ListViewItemType.DataItem)
             {
                 productImage.ImageUrl = "data:image/jpg;base64," + transactionItem.TransactionItem.ProductPic;
-                productName.Text = transactionItem.TransactionItem.ProductName;
+               
+                productNamee.Text = transactionItem.TransactionItem.ProductName;
                 productPrice.Text = transactionItem.TransactionItem.ProductPrice.ToString();
                 totalPrice.Text = transactionItem.TransactionPrice.ToString();
                 productTags.Text = productTags.Text + transactionItem.TransactionItem.ProductCategoryA + ", " + transactionItem.TransactionItem.ProductCategoryB + ", " + transactionItem.TransactionItem.ProductCategoryC;
@@ -192,14 +194,29 @@ namespace FirstApplication
             transactionItems.ElementAt(index).TransactionPrice = total;
             ComputeTransaction();
         }
-
+        protected void productDetailView(object sender, EventArgs e)
+        {
+            var pdv = (LinkButton)sender;
+            var item = (ListViewItem)pdv.NamingContainer;
+            var index = item.DataItemIndex;
+            string productName = pdv.Text;
+            Session["ViewedProduct"] = productName;
+            Page.ClientScript.RegisterStartupScript(
+            this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
+        }
         protected void transactionComputeButton_Click(object sender, EventArgs e)
         {
+            try { 
             double cash = Convert.ToDouble(transactionCash.Text);
             double change = cash-totalPayable;
             transactionDetails.TransactionCash = cash;
             transactionDetails.TransactionChange = change;
             transactionChangeLabel.Text = transactionChangeLabel.Text + change.ToString();
+            }
+            catch(Exception)
+            {
+                return;
+            }
         }
 
         protected void transactionCancelButton_Click(object sender, EventArgs e)
@@ -210,7 +227,7 @@ namespace FirstApplication
             }
             Session["transactionID"] = null;
             Session["transactionList"] = null;
-            transactionDetails = null;
+          //  transactionDetails = null;
             Response.Redirect("WebForm7.aspx");
         }
 
@@ -228,6 +245,7 @@ namespace FirstApplication
         {
            foreach(Transaction t in transactionItems)
             {
+                t.UserID = user.Id;
                 data.ConfirmTransaction(t);
             }
             data.ConfirmTransactionDetails(transactionDetails);

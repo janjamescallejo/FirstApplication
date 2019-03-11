@@ -144,7 +144,9 @@
                     <td rowspan="2">
                         <asp:Image ID="Image2" runat="server" style="height:70px; width:60px"/></td>
                     <td>
-                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></td>
+                        
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="productDetailView"></asp:LinkButton>
+                    </td>
                     <td><asp:DropDownList ID="itemQuantity" runat="server" OnSelectedIndexChanged="itemQuantity_SelectedIndexChanged" ></asp:DropDownList></td>
                     <td><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></td>
                     <td><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></td>
@@ -155,7 +157,7 @@
                     <td>
                         <asp:Label ID="Label4" runat="server" Text="Tags: "></asp:Label></td>
                     <td>
-                        <asp:Button ID="quantityButton" runat="server" Text="Edit" onclick="quantityButton_Click"/></td>
+                        <asp:Button ID="quantityButton" runat="server" Text="Quantify" onclick="quantityButton_Click"/></td>
                     </tr>
                 
                 

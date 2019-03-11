@@ -48,13 +48,13 @@ namespace FirstApplication
         {
             credentialCheck();
             CopyrightLabel.Text = "©"+DateTime.Now.ToString("yyyy")+" Jan James Callejo All Rights Reserved";
-            //Database data=new Database();
+            Database data=new Database();
           
             
-           // products = data.readProduct();
+           products = data.readProduct();
             
             LoadPictures();
-           // readProducts();
+           readProducts();
             if(!IsPostBack)
             {
                 ShowTransaction();
@@ -69,55 +69,40 @@ namespace FirstApplication
         }
            protected void readProducts()
         {
-            Random r = new Random();
-            int index = r.Next(0, products.Count);
-            int index1 = r.Next(0, products.Count);
-            int index2 = r.Next(0, products.Count);
-            while (index == index2 || index == index1 || index1 == index2)
+            Random rand = new Random();
+            products = products.OrderBy(pro => rand.Next()).ToList();
+            for(int i=0;i<products.Count;i++)
             {
-                if (index == index2)
+                if(i==0)
                 {
-
-                    index = r.Next(products.Count);
-                    index2 = r.Next(products.Count);
-
+                    ProductImage1.ImageUrl = "data:image/jpg;base64," + products.ElementAt(i).ProductPic;
+                    ItemNameA.Text = products.ElementAt(i).ProductName;
+                    ItemPrize1.Text = "Price: P " + Convert.ToString(products.ElementAt(i).ProductPrice);
+                    ItemQuantity1.Text = "Quantity: " + Convert.ToString(products.ElementAt(i).ProductQuantity);
                 }
-                else if (index == index1)
+
+                if (i == 1)
                 {
-
-                    index = r.Next(products.Count);
-                    index1 = r.Next(products.Count);
-
+                    ProductImage2.ImageUrl = "data:image/jpg;base64," + products.ElementAt(i).ProductPic;
+                    ItemNameB.Text = products.ElementAt(i).ProductName;
+                    ItemPrize2.Text = "Price: P " + Convert.ToString(products.ElementAt(i).ProductPrice);
+                    ItemQuantity2.Text = "Quantity: " + Convert.ToString(products.ElementAt(i).ProductQuantity);
                 }
-                else if (index2 == index1)
+                if (i == 2)
                 {
-
-                    index2 = r.Next(products.Count);
-                    index1 = r.Next(products.Count);
-
+                    ProductImage3.ImageUrl = "data:image/jpg;base64," + products.ElementAt(i).ProductPic;
+                    ItemNameC.Text = products.ElementAt(i).ProductName;
+                    ItemPrize3.Text = "Price: P " + Convert.ToString(products.ElementAt(i).ProductPrice);
+                    ItemQuantity3.Text = "Quantity: " + Convert.ToString(products.ElementAt(i).ProductQuantity);
                 }
+
             }
-            Product p;
-            p = products.ElementAt(index);
-            ProductImage1.ImageUrl = "data:image/jpg;base64," + p.ProductPic;
-            ItemName1.Text = p.ProductName;
-            ItemPrize1.Text = "Price: P " + Convert.ToString(p.ProductPrice);
-            ItemQuantity1.Text = "Quantity: " + Convert.ToString(p.ProductQuantity);
            
-            p = products.ElementAt(index1);
-            ProductImage2.ImageUrl = "data:image/jpg;base64," + p.ProductPic;
-            ItemName2.Text = p.ProductName;
-            ItemPrize2.Text = "Price: P " + Convert.ToString(p.ProductPrice);
-            ItemQuantity2.Text = "Quantity: " + Convert.ToString(p.ProductQuantity);
+            
            
-            p = products.ElementAt(index2);
-            ProductImage3.ImageUrl = "data:image/jpg;base64," + p.ProductPic;
-            ItemName3.Text = p.ProductName;
-            ItemPrize3.Text = "Price: P " + Convert.ToString(p.ProductPrice);
-            ItemQuantity3.Text = "Quantity: " + Convert.ToString(p.ProductQuantity);
            
         }
-
+       
        
         protected void Register_Click(object sender, EventArgs e)
         {
@@ -143,16 +128,12 @@ namespace FirstApplication
 
         protected void SignUpButton1_Click(object sender, EventArgs e)
         {
-            // Page.ClientScript.RegisterStartupScript(
-            //this.GetType(), "OpenWindow", "window.open('Webform2.aspx','_newtab');", true);
-            Response.Redirect("Webform2.aspx");
+           Response.Redirect("Webform2.aspx");
         }
 
         protected void LogInButton1_Click(object sender, EventArgs e)
         {
-            // Page.ClientScript.RegisterStartupScript(
-            //this.GetType(), "OpenWindow", "window.open('Webform2.aspx','_newtab');", true);
-            Response.Redirect("Webform2.aspx");
+           Response.Redirect("Webform2.aspx");
         }
 
         protected void LogOutButton1_Click(object sender, EventArgs e)
@@ -172,6 +153,25 @@ namespace FirstApplication
             searchInputs[1] = searchOption;
             Session["searchInputs"] = searchInputs;
             Response.Redirect("WebForm6.aspx");
+        }
+
+        protected void ItemNameA_Click(object sender, EventArgs e)
+        {
+            Session["ViewedProduct"] = ItemNameA.Text;
+            Page.ClientScript.RegisterStartupScript(
+this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
+        }
+        protected void ItemNameB_Click(object sender, EventArgs e)
+        {
+            Session["ViewedProduct"] = ItemNameB.Text;
+            Page.ClientScript.RegisterStartupScript(
+this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
+        }
+        protected void ItemNameC_Click(object sender, EventArgs e)
+        {
+            Session["ViewedProduct"] = ItemNameC.Text;
+            Page.ClientScript.RegisterStartupScript(
+this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
         }
     }
 }

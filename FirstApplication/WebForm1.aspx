@@ -116,16 +116,14 @@
         <div class="featured" style="position: absolute; width: 938px; top: 149px; left: 45px; height: 434px; background-color:blue;">
             <asp:Label ID="Label2" runat="server" Text="Featured Products" style="position:absolute; top: 25px; left: 22px; height: 74px; width: 565px; color:white; font-size:60px;"></asp:Label>
             <div runat="server" id="Product1" style="border-color: white; border-style: solid; width: 257px; position: absolute; left: 73px; height: 284px; background-color: blue; margin-top: 0px; top: 125px; color:white; ">
-            <asp:Label ID="ItemName1" runat="server" style="position:absolute; top: 29px; left: 26px; height: 22px; width: 186px;"></asp:Label>
             <asp:Label ID="ItemPrize1" runat="server" style="position:absolute; top: 240px; left: 33px; width: 158px; height: 23px;"></asp:Label>
            <asp:Label ID="ItemQuantity1" runat="server" style="position:absolute; top: 201px; left: 29px; height: 24px; width: 167px;"></asp:Label>
             <asp:Image ID="ProductImage1" runat="server" style="position:absolute; top: 64px; left: 26px; height: 114px; width: 181px;"/>
+                <asp:LinkButton ID="ItemNameA" runat="server" style="position:absolute; top: 34px; left: 25px; width: 138px; color:white;" OnClick="ItemNameA_Click"></asp:LinkButton>
         </div>
-    <div id="Product2" runat="server" style="border-color: white; position: absolute; background-color:blue; color:white; border-style: solid; width: 238px; top: 128px; left: 365px; height: 278px;">
-    
+    <div id="Product2" runat="server" style="border-color: white; position: absolute; background-color:blue; color:white; border-style: solid; width: 238px; top: 125px; left: 365px; height: 282px;">
+        <asp:LinkButton ID="ItemNameB" runat="server" style="color:white; position:absolute; top: 27px; left: 22px;" OnClick="ItemNameB_Click"></asp:LinkButton>
              <asp:Image ID="ProductImage2" runat="server" style="position:absolute; top: 56px; left: 18px; height: 114px; width: 192px;"/>
-    
-             <asp:Label ID="ItemName2" runat="server" style="position:absolute; top: 24px; left: 19px; width: 205px;"></asp:Label>
     
              <asp:Label ID="ItemQuantity2" runat="server" Text="" style="position:absolute; top: 191px; left: 17px; width: 193px;"></asp:Label>
     
@@ -135,9 +133,9 @@
 
      
         
-        <div id="Product3" runat="server" style="border-style: solid; border-color: white; position:absolute; background-color: #0000FF; color: #FFFFFF; top: 130px; left: 641px; width: 252px; height: 275px;">
-            <asp:Image ID="ProductImage3" runat="server" CssClass="auto-style1" style="position:absolute; top: 61px; left: 23px; width: 208px; height: 106px;" />
-            <asp:Label ID="ItemName3" runat="server" style="position:absolute; top: 29px; left: 22px;"></asp:Label>
+        <div id="Product3" runat="server" style="border-style: solid; border-color: white; position:absolute; background-color: #0000FF; color: #FFFFFF; top: 125px; left: 642px; width: 252px; height: 281px;">
+            <asp:LinkButton ID="ItemNameC" runat="server" style="position:absolute; color:white; top: 26px; left: 23px;" OnClick="ItemNameC_Click"></asp:LinkButton>
+             <asp:Image ID="ProductImage3" runat="server" CssClass="auto-style1" style="position:absolute; top: 61px; left: 23px; width: 208px; height: 106px;" />
             <asp:Label ID="ItemQuantity3" runat="server" Text="" style="position:absolute; top: 184px; left: 18px; width: 216px;"></asp:Label>
             <asp:Label ID="ItemPrize3" runat="server" Text="" style="position:absolute; top: 220px; left: 22px; width: 160px;"></asp:Label>
         </div>

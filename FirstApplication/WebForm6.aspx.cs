@@ -193,13 +193,24 @@ namespace FirstApplication
             var produ = (Product)e.Item.DataItem;
             Image productImage = e.Item.FindControl("Image2") as Image;
             Label dateLabel = e.Item.FindControl("Label6") as Label;
-           
+            LinkButton productName = e.Item.FindControl("LinkButton1") as LinkButton;
             if (e.Item.ItemType == ListViewItemType.DataItem) 
             {
                 productImage.ImageUrl= "data:image/jpg;base64," + produ.ProductPic;
                 dateLabel.Text = produ.ProductDate.ToString("yyyy-MM-dd");
+                productName.Text = produ.ProductName;
             }
 
+        }
+        protected void productDetailView(object sender, EventArgs e)
+        {
+            var pdv = (LinkButton)sender;
+            var item = (ListViewItem)pdv.NamingContainer;
+            var index = item.DataItemIndex;
+            string productName = pdv.Text;
+            Session["ViewedProduct"] = productName;
+            Page.ClientScript.RegisterStartupScript(
+            this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
         }
         protected void OnPagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
         {
