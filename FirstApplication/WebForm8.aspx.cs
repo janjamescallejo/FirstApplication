@@ -53,6 +53,7 @@ namespace FirstApplication
             productName = Session["ViewedProduct"].ToString();
             product = data.showProduct(productName);
             LoadProduct();
+            this.Title = productName;
             if (!IsPostBack)
             {
                 ShowTransaction();
@@ -76,15 +77,18 @@ namespace FirstApplication
             {
                 if(t.TagID.Equals(product.ProductCategoryA))
                 {
-                    productTags.Text = productTags.Text +t.TagName+ ", "; 
+                    productTags.Text = productTags.Text +t.TagName+ ", ";
+                    product.ProductCategoryA = t.TagName;
                 }
                 if (t.TagID.Equals(product.ProductCategoryB))
                 {
                     productTags.Text = productTags.Text + t.TagName + ", ";
+                    product.ProductCategoryB = t.TagName;
                 }
                 if (t.TagID.Equals(product.ProductCategoryC))
                 {
                     productTags.Text = productTags.Text +"and "+ t.TagName;
+                    product.ProductCategoryC = t.TagName;
                 }
             }
             showSeller();
@@ -134,6 +138,12 @@ namespace FirstApplication
             Page.ClientScript.RegisterStartupScript(
 this.GetType(), "OpenWindow", "window.open('WebForm6.aspx','_newtab');", true);
 
+        }
+
+        protected void cartButton_Click(object sender, EventArgs e)
+        {
+            Session["chosenProduct"] = product;
+            Response.Redirect("WebForm7.aspx");
         }
     }
 }

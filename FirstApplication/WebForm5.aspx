@@ -4,6 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+      <link rel="shortcut icon" type="image/ico" href="/StoreLogoHead.png" />
+
     <title>Sell</title>
     <style type="text/css">
 

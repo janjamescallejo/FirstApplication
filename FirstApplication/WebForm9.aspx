@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm8.aspx.cs" Inherits="FirstApplication.WebForm8" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm9.aspx.cs" Inherits="FirstApplication.WebForm9" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-      <link rel="shortcut icon" type="image/ico" href="/StoreLogoHead.png" />
+     <link rel="shortcut icon" type="image/ico" href="/StoreLogoHead.png" />
 
-    <title></title>
+    <title>About Us</title>
     <style type="text/css">
         
         #Button1 {
@@ -49,7 +49,9 @@
     text-decoration: none;
             
         }
-        .menubar a:hover {
+
+/* Change background on mouse-over */
+.menubar a:hover {
     background: #ddd;
     color: deepskyblue;
 }
@@ -83,9 +85,11 @@
 
     </style>
 </head>
-<body style="background-color:white; overflow-x:hidden">
+<body>
     <form id="form1" runat="server">
-     <div class="top" runat="server">
+    
+   
+    <div class="top" runat="server">
          <a href="WebForm1.aspx"><asp:Image ID="Image1" runat="server" style=" position:fixed; margin-top:0; top: 12px; left: 10px; height: 75px; width: 137px; " /></a>
    
         <div class="menubar" id="menu" runat="server">
@@ -108,32 +112,34 @@
                         
          </div>
       </div>
-         <div class="bottom" style="position: absolute; background-color: #000000; color: #FFFFFF;">
+ 
+       <div class="about us" style="position:absolute; top: 153px; left: 120px; width: 1091px; height: 122px; margin-top: 21px; background-color:blue; color:white;">
+           <h1 class="aboutUsLabel" >ABOUT US</h1>
+           <p class="aboutText" style="font-size:larger">This is the E-Commerce Site created solely by Jan James Callejo as a personal project to practice his skills and learn Web Development through ASP Webforms. This will cover a Cash-on-Delivery system of payment. In the future, we hope this evolves into a real e-commerce business operating 24/7.
+           </p>
+          
+       </div>
+
+        <div class="faq" style="position:absolute; top: 324px; left: 121px; height: 498px; width: 1085px; background-color:blue; color:white;">
+        <h1 class="faqLabel">FAQ</h1>
+         <h2>A. How to Buy</h2>
+            <ol>
+                <li>Click the Buy Menu</li>
+                 <li>Choose an item by clicking Add</li>
+                 <li>Click the Cart Menu</li>
+                 <li>Click the Quantify Button</li>
+                <li>Type the Cash Amount</li>
+                <li>Click the Compute Amount Button</li>
+                <li>Click the Compute Amount</li>
+             </ol>
+        </div>
+
+        <div class="bottom" style="position: absolute; background-color: #000000; color: #FFFFFF;">
        
             <asp:Label ID="CopyrightLabel" runat="server" style="position:absolute; top: 101px; left: 543px;"></asp:Label>
        
         </div>
-        <div id="productBox" style="position:absolute; background-color:blue; color:white; top: 140px; left: 63px; height: 439px; width: 760px; margin-top: 0px;">
-            
-            <asp:Label ID="productLabel" runat="server" Text="Label" style="position:absolute; top: 38px; left: 287px; height: 40px; width: 436px; font-size:30px"></asp:Label>
-            
-            <asp:Label ID="productSeller" runat="server" Text="Sold By: " style="position:absolute; top: 84px; left: 287px; width: 200px; right: 273px;"></asp:Label>
-            
-            <asp:Image ID="productImage" runat="server" style="position:absolute; top: 48px; left: 44px; height: 296px; width: 228px;"/>
-            
-            <asp:TextBox ID="productDescription" runat="server" style="position:absolute; top: 138px; left: 288px; width: 421px; height: 178px;" TextMode="MultiLine" ReadOnly="True"></asp:TextBox>
-            
-            <asp:Label ID="productDate" runat="server" Text="Sold At: " style="position:absolute; top: 85px; left: 498px; width: 211px;"></asp:Label>
-            
-            <asp:Label ID="productQuantity" runat="server" Text="Quantity: " style="position:absolute; top: 348px; left: 291px; width: 144px;"></asp:Label>
-            
-            <asp:Label ID="productPrice" runat="server" Text="Price: " style="position:absolute; top: 349px; left: 469px; width: 199px;"></asp:Label>
-            
-            <asp:Button ID="cartButton" runat="server" Text="Add to Cart" style="position:absolute; top: 395px; left: 630px;" OnClick="cartButton_Click" />
-            
-            <asp:Label ID="productTags" runat="server" Text="Tags: " style="position:absolute; top: 109px; left: 288px; right: 47px;"></asp:Label>
-            
-        </div>
+      
     </form>
 </body>
 </html>

@@ -218,17 +218,21 @@ namespace FirstApplication
                 return;
             }
         }
-
-        protected void transactionCancelButton_Click(object sender, EventArgs e)
+        private void clearTransaction()
         {
-            for(int i=0;i<transactionItems.Count;i++)
+            for (int i = 0; i < transactionItems.Count; i++)
             {
                 transactionItems.RemoveAt(i);
             }
             Session["transactionID"] = null;
             Session["transactionList"] = null;
-          //  transactionDetails = null;
+
             Response.Redirect("WebForm7.aspx");
+        }
+
+        protected void transactionCancelButton_Click(object sender, EventArgs e)
+        {
+            clearTransaction();
         }
 
         protected void RemoveButton_Click(object sender, EventArgs e)
@@ -251,6 +255,8 @@ namespace FirstApplication
             data.ConfirmTransactionDetails(transactionDetails);
             transactionStatus.Visible = true;
             transactionStatus.Text = "Transaction Complete";
+
+            clearTransaction();
 
         }
     }

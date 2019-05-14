@@ -149,7 +149,12 @@ namespace FirstApplication
         {
             AccountInfo_AccountName.Text = user.UName;
             AccountInfo_AccountID.Text = user.Id.ToString();
-            //AccountInfo_AccountDate.Text = user.date.ToString("MMMM dd, yyyy");
+            AccountInfo_AccountDate.Text = user.UserDate.ToString("MMMM dd, yyyy");
+
+            if(!user.UserType.Equals("Administrator"))
+            {
+                AdminControls.Visible = false;
+            }
 
         }
         protected void LoadPictures()
