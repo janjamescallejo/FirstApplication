@@ -50,7 +50,7 @@
             
         }
 
-/* Change background on mouse-over */
+
 .menubar a:hover {
     background: #ddd;
     color: deepskyblue;
@@ -96,7 +96,7 @@
         <div class="menubar" id="menu" runat="server">
         <a href="Webform6.aspx">Buy</a>
         <a href="Webform5.aspx">Sell</a>
-         <a href="#about">About Us</a>
+         <a href="Webform9.aspx">About Us</a>
         <a href="Webform4.aspx">Account</a>
         <a href="Webform7.aspx">Cart[<asp:Label ID="cartCount" runat="server" Text="0"></asp:Label>]</a>
                  </div>

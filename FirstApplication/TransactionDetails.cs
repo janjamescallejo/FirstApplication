@@ -11,7 +11,7 @@ namespace FirstApplication
         private string userID;
         private double transactionCash;
         private double transactionChange;
-        private string userAddress;
+      
 
         public string TransactionID
         {
@@ -64,18 +64,6 @@ namespace FirstApplication
                 transactionChange = value;
             }
         }
-
-        public string UserAddress
-        {
-            get
-            {
-                return userAddress;
-            }
-
-            set
-            {
-                userAddress = value;
-            }
-        }
+        
     }
 }

@@ -100,6 +100,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="StoreLogoHead.png" />
+    <Content Include="WebForm10.aspx" />
     <Content Include="WebForm2.aspx" />
     <Content Include="WebForm3.aspx" />
     <Content Include="WebForm4.aspx" />
@@ -123,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database.cs" />
+    <Compile Include="Delivery.cs" />
     <Compile Include="Documents.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +138,13 @@
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm10.aspx.cs">
+      <DependentUpon>WebForm10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm10.aspx.designer.cs">
+      <DependentUpon>WebForm10.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>

@@ -1,12 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm9.aspx.cs" Inherits="FirstApplication.WebForm9" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm10.aspx.cs" Inherits="FirstApplication.WebForm10" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <link rel="shortcut icon" type="image/ico" href="/StoreLogoHead.png" />
-
-    <title>About Us</title>
+    <title>Delivery Details</title>
     <style type="text/css">
         
         #Button1 {
@@ -50,7 +48,7 @@
             
         }
 
-/* Change background on mouse-over */
+
 .menubar a:hover {
     background: #ddd;
     color: deepskyblue;
@@ -88,14 +86,13 @@
 <body>
     <form id="form1" runat="server">
     
-   
     <div class="top" runat="server">
          <a href="WebForm1.aspx"><asp:Image ID="Image1" runat="server" style=" position:fixed; margin-top:0; top: 12px; left: 10px; height: 75px; width: 137px; " /></a>
    
         <div class="menubar" id="menu" runat="server">
         <a href="Webform6.aspx">Buy</a>
         <a href="Webform5.aspx">Sell</a>
-         <a href="#about">About Us</a>
+         <a href="Webform9.aspx">About Us</a>
         <a href="Webform4.aspx">Account</a>
         <a href="Webform7.aspx">Cart[<asp:Label ID="cartCount" runat="server" Text="0"></asp:Label>]</a>
                  </div>
@@ -112,47 +109,25 @@
                         
          </div>
       </div>
- 
-       <div class="about us" style="position:absolute; top: 117px; left: 39px; width: 1217px; height: 145px; margin-top: 21px; background-color:blue; color:white;">
-           <h1 class="aboutUsLabel" >ABOUT US</h1>
-           <p class="aboutText" style="font-size:larger">This is the E-Commerce Site created solely by Jan James Callejo as a personal project to practice his skills and learn Web Development through ASP Webforms. This will cover a Cash-on-Delivery system of payment. In the future, we hope this evolves into a real e-commerce business operating 24/7.
-           </p>
-          
-       </div>
-
-        <div class="faq" style="position:absolute; top: 324px; left: 42px; height: 498px; width: 1216px; background-color:blue; color:white; overflow:auto;">
-        <h1 class="faqLabel">FAQ</h1>
-         <h2>A. How to Buy</h2>
-            <ol>
-                <li>Click the Buy Menu</li>
-                 <li>Choose an item by clicking Add</li>
-                 <li>Click the Cart Menu</li>
-                 <li>Click the Quantify Button</li>
-                <li>Type the Cash Amount</li>
-                <li>Click the Compute Amount Button</li>
-                <li>Click Confirm</li>
-               
-             </ol>
-            <h2>B. How to Sell</h2>
-            <ol>
-                <li>Log In</li>
-                <li>Click the Sell Menu</li>
-                <li>Fill in the Sell form</li> 
-                Optional: cleate tags through
-                <ol type="a">
-                    <li>Fill in the Tag Form</li>
-                    <li>Click the Submit</li>
-                </ol>
-                <li>Click Submit</li>
-                </ol>
-        </div>
-
+    
+      
         <div class="bottom" style="position: absolute; background-color: #000000; color: #FFFFFF;">
        
             <asp:Label ID="CopyrightLabel" runat="server" style="position:absolute; top: 101px; left: 543px;"></asp:Label>
        
         </div>
-      
+             
+
+        <div id="deliveryDetails" runat="server" style="position:absolute; background-color:blue; color:white; top: 176px; left: 167px; height: 711px; width: 774px;">
+            <asp:Button ID="deliveryConfirm" runat="server" Text="Confirm Delivery" style="position:absolute; top: 644px; left: 521px; width: 180px; height: 39px;" OnClick="deliveryConfirm_Click" />
+            <asp:Button ID="deliveryCancel" runat="server" Text="Cancel Delivery" style="position:absolute; top: 645px; left: 55px; height: 41px; width: 177px;" />
+            <asp:Label ID="deliveryBanner" runat="server" Text="Items to be Delivered" style="position:absolute; top: 26px; left: 43px; height: 37px; width: 228px; margin-bottom: 0px; font-size:x-large"></asp:Label>
+            <asp:TextBox ID="deliveryAddress" runat="server" style="position:absolute; top: 544px; left: 62px; height: 68px; width: 642px;" TextMode="MultiLine"></asp:TextBox>
+           <asp:Label ID="Label1" runat="server" Text="Delivery Address" style="position:absolute; top: 513px; left: 66px; margin-bottom: 0px;"></asp:Label>
+            <asp:Label ID="deliveryItems" runat="server" alt="to be filled in" Text="" style="position:absolute; top: 77px; left: 52px; height: 422px; width: 661px;"></asp:Label>
+        </div>
+             
+
     </form>
 </body>
 </html>

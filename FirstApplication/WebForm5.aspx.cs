@@ -251,6 +251,14 @@ namespace FirstApplication
                 prod.UserID = user.Id;
                 prod.ProductDate = DateTime.Now;
                 data.sellProduct(prod);
+                Delivery delivery = new Delivery();
+                delivery.ParcelType = "NewProduct";
+                delivery.ParcelID = prod.ProductID;
+                delivery.UserID = user.Id;
+                delivery.DeliveryStatus = "Pending";
+                Session["Delivery"] = delivery;
+                Session["ParcelDetails"] = prod;
+                Response.Redirect("WebForm10.aspx");
 
             }
         }

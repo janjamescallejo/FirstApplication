@@ -15,9 +15,14 @@ select * from tags
 select * from useraccounts
 select * from Products
 select * from usertransactiondetails
+select * from usertransaction
 
 insert into tags values('TAGK3OPF37TZ','Purple','It''s something that is colored purple','ACCOUNT00001','2019-03-06')
 
 update products 
 set productQuantity=10
 where productName='Purple Book'
+
+create table delivery(userID varchar(12), deliveryID varchar(12),parcelID varchar(12),parcelType varchar(50),deliveryAddress varchar(255), deliveryStatus varchar(50))
+insert into delivery values('1','2','3','4','5','6')
+select * from delivery

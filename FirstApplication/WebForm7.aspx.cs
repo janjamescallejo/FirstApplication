@@ -255,8 +255,15 @@ namespace FirstApplication
             data.ConfirmTransactionDetails(transactionDetails);
             transactionStatus.Visible = true;
             transactionStatus.Text = "Transaction Complete";
-
-            clearTransaction();
+            Delivery delivery = new Delivery();
+            delivery.ParcelType = "Transaction";
+            delivery.ParcelID = transactionDetails.TransactionID;
+            delivery.UserID = user.Id;
+            delivery.DeliveryStatus = "Pending";
+            Session["Delivery"] = delivery;
+            Session["ParcelDetails"] = transactionDetails;
+            Response.Redirect("WebForm10.aspx");
+          
 
         }
     }

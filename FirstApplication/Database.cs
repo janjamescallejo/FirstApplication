@@ -20,6 +20,25 @@ namespace FirstApplication
             con = new SqlConnection(connectionString);
             con.Open();
         }
+        public void insertDelivery(Delivery delivery)
+        {
+            OpenDatabase();
+
+            string sql = "insert into delivery values('" + delivery.UserID + "','" + delivery.DeliveryID + "','" + delivery.ParcelID + "','" + delivery.ParcelType + "','" + delivery.Address + "','"+delivery.DeliveryStatus+"')";
+            try
+            {
+                com = new SqlCommand(sql, con);
+                com.ExecuteNonQuery();
+               
+            }
+            catch (Exception)
+            {
+
+                CloseDatabase();
+            }
+            CloseDatabase();
+        }
+
         public UserAccount ReadAccount(string userName)
         {
             OpenDatabase();
@@ -425,6 +444,31 @@ namespace FirstApplication
             {
                 CloseDatabase();
             }
+        }
+        public List<Transaction> readTransactionItems(String transactionID)
+        {
+            List<Transaction> transactionItems = new List<Transaction>();
+            string sql = "select * from usertransactions where transactionID=" + transactionID;
+            OpenDatabase();
+            try {
+                
+                com = new SqlCommand(sql, con);
+                while (read.Read())
+                {
+                    Transaction transactionItem = new Transaction();
+                    transactionItem.TransactionID = Convert.ToString(read["transactionID"]);
+                    transactionItem.TransactionPrice = Convert.ToDouble(read["transactionPrice"]);                 
+                   
+                    transactionItems.Add(transactionItem);
+
+                }
+            }
+            finally
+            {
+                CloseDatabase();
+               // return null;
+            }
+            return transactionItems;
         }
         private void CloseDatabase()
         {
