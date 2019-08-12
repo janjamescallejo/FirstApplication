@@ -123,6 +123,7 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comment.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Delivery.cs" />
     <Compile Include="Documents.cs" />

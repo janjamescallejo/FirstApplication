@@ -118,14 +118,21 @@
         </div>
              
 
-        <div id="deliveryDetails" runat="server" style="position:absolute; background-color:blue; color:white; top: 176px; left: 167px; height: 711px; width: 774px;">
-            <asp:Button ID="deliveryConfirm" runat="server" Text="Confirm Delivery" style="position:absolute; top: 644px; left: 521px; width: 180px; height: 39px;" OnClick="deliveryConfirm_Click" />
-            <asp:Button ID="deliveryCancel" runat="server" Text="Cancel Delivery" style="position:absolute; top: 645px; left: 55px; height: 41px; width: 177px;" />
+        <div id="deliveryDetails" runat="server" style="position:absolute; background-color:blue; color:white; top: 176px; left: 167px; height: 715px; width: 774px;">
+            <asp:Button ID="deliveryConfirm" runat="server" Text="Confirm Delivery" style="position:absolute; top: 666px; left: 573px; width: 138px; height: 28px;" OnClick="deliveryConfirm_Click" />
+            <asp:Button ID="deliveryCancel" runat="server" Text="Cancel Delivery" style="position:absolute; top: 665px; left: 55px; height: 29px; width: 132px;" />
             <asp:Label ID="deliveryBanner" runat="server" Text="Items to be Delivered" style="position:absolute; top: 26px; left: 43px; height: 37px; width: 228px; margin-bottom: 0px; font-size:x-large"></asp:Label>
-            <asp:TextBox ID="deliveryAddress" runat="server" style="position:absolute; top: 544px; left: 62px; height: 68px; width: 642px;" TextMode="MultiLine"></asp:TextBox>
-           <asp:Label ID="Label1" runat="server" Text="Delivery Address" style="position:absolute; top: 513px; left: 66px; margin-bottom: 0px;"></asp:Label>
-            <asp:Label ID="deliveryItems" runat="server" alt="to be filled in" Text="" style="position:absolute; top: 77px; left: 52px; height: 422px; width: 661px;"></asp:Label>
+            <asp:TextBox ID="deliveryAddress" runat="server" style="position:absolute; top: 502px; left: 55px; height: 68px; width: 642px;" TextMode="MultiLine"></asp:TextBox>
+           <asp:Label ID="Label1" runat="server" Text="Delivery Address" style="position:absolute; top: 475px; left: 55px; margin-bottom: 0px;"></asp:Label>
+            <asp:Label ID="deliveryItems" runat="server" alt="to be filled in" Text="" style="position:absolute; top: 67px; left: 53px; height: 366px; width: 661px;"></asp:Label>
+            <asp:Button ID="clearAddress" runat="server" Text="Clear" style="position:absolute; top: 595px; left: 56px; width: 95px; height: 29px;" OnClick="clearAddress_Click"/>
+             <hr style="position:absolute; top: 455px; left: 4px; height: 11px; margin-bottom: 1px;"/>
+           <asp:Button ID="confirmAddress" runat="server" Text="Confirm" style="position:absolute; top: 593px; left: 625px; height: 30px; width: 78px;"/>
+             <hr />
         </div>
+             
+
+        
              
 
     </form>

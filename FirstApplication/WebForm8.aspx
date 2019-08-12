@@ -113,15 +113,15 @@
             <asp:Label ID="CopyrightLabel" runat="server" style="position:absolute; top: 101px; left: 543px;"></asp:Label>
        
         </div>
-        <div id="productBox" style="position:absolute; background-color:blue; color:white; top: 140px; left: 63px; height: 439px; width: 760px; margin-top: 0px;">
+        <div id="productBox" style="position:absolute; background-color:blue; color:white; top: 140px; left: 63px; height: 418px; width: 705px; margin-top: 0px;">
             
-            <asp:Label ID="productLabel" runat="server" Text="Label" style="position:absolute; top: 38px; left: 287px; height: 40px; width: 436px; font-size:30px"></asp:Label>
+            <asp:Label ID="productLabel" runat="server" Text="Label" style="position:absolute; top: 42px; left: 280px; height: 40px; width: 436px; font-size:30px"></asp:Label>
             
             <asp:Label ID="productSeller" runat="server" Text="Sold By: " style="position:absolute; top: 84px; left: 287px; width: 200px; right: 273px;"></asp:Label>
             
             <asp:Image ID="productImage" runat="server" style="position:absolute; top: 48px; left: 44px; height: 296px; width: 228px;"/>
             
-            <asp:TextBox ID="productDescription" runat="server" style="position:absolute; top: 138px; left: 288px; width: 421px; height: 178px;" TextMode="MultiLine" ReadOnly="True"></asp:TextBox>
+            <asp:TextBox ID="productDescription" runat="server" style="position:absolute; top: 138px; left: 288px; width: 364px; height: 178px;" TextMode="MultiLine" ReadOnly="True"></asp:TextBox>
             
             <asp:Label ID="productDate" runat="server" Text="Sold At: " style="position:absolute; top: 85px; left: 498px; width: 211px;"></asp:Label>
             
@@ -129,11 +129,74 @@
             
             <asp:Label ID="productPrice" runat="server" Text="Price: " style="position:absolute; top: 349px; left: 469px; width: 199px;"></asp:Label>
             
-            <asp:Button ID="cartButton" runat="server" Text="Add to Cart" style="position:absolute; top: 395px; left: 630px;" OnClick="cartButton_Click" />
+            <asp:Button ID="cartButton" runat="server" Text="Add to Cart" style="position:absolute; top: 380px; left: 557px; height: 26px; width: 106px;" OnClick="cartButton_Click" />
             
             <asp:Label ID="productTags" runat="server" Text="Tags: " style="position:absolute; top: 109px; left: 288px; right: 47px;"></asp:Label>
             
         </div>
+        <div id="commentContainer" runat="server" style="position: absolute; top: 140px; left: 882px; height: 730px; width: 392px; background-color:blue; color:white;">
+        <h1 style="text-align:center">Comments</h1>
+            <div id="commentContainer2" runat="server" style="position: absolute; top: 78px; left: 19px; height: 415px; width: 355px; background-color:white; color:blue">
+                <asp:ListView ID="commentList" runat="server" OnItemDataBound="commentList_ItemDataBound"  OnPagePropertiesChanging="OnPagePropertiesChanging" EnableModelValidation="False">
+                    <layouttemplate>
+                        <table >
+                           
+                        <asp:PlaceHolder runat="server" ID="itemPlaceholder"></asp:PlaceHolder>
+                <tr>
+                    
+                 <td >
+                    <asp:DataPager ID="commentDataPager" runat="server" PagedControlID="commentList" PageSize="4">
+                        <Fields>
+                            <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
+                                ShowNextPageButton="false" />
+                            <asp:NumericPagerField ButtonType="Link" />
+                            <asp:NextPreviousPagerField ButtonType="Link" ShowNextPageButton="true" ShowLastPageButton="false"
+                                ShowPreviousPageButton="false" />
+                        </Fields>
+                    </asp:DataPager>
+                        </td>
+                    </tr>
+          
+
+                        </table>
+                        </layouttemplate>
+                   
+                    <itemTemplate>
+                       <tr>
+                          <td colspan="3"><%#Eval("UserID") %></td>
+                           <td><%#Eval("Datecreated") %></td>
+                       </tr>
+                        <tr>
+                            <td><asp:Button ID="UpvoteButton" runat="server" onclick="Upvote_Click" Text="Up" style="height:20px;"/></td>
+                             <td><%#Eval("Upvotes") %></td>
+
+                            <td><asp:Button ID="DownvoteButton" runat="server" onclick="Downvote_Click" Text="Down" style="height:20px;"/></td>
+                             <td><%#Eval("Downvotes") %></td>
+                            </tr>
+                         <tr>
+                            <td colspan="4">
+                            <div style="height:3px; background-color:deepskyblue; width:350px;"></div>
+                            </td>
+                                </tr>
+                        <tr>
+                            <td><%# Eval("CommentContent") %></td>
+                            </tr>
+                         <tr>
+                            <td colspan="4">
+                            <div style="height:3px; background-color:blue; width:350px;"></div>
+                            </td>
+                                </tr>
+                        </itemTemplate>
+                </asp:ListView>
+        </div>
+            <div id="commentMaker" runat="server" style="position:absolute; background-color: white; color: blue; top: 512px; left: 24px; width: 342px; height: 178px; " >
+                <p style="color:blue; text-align:center; font:bold;" >Send Comment</p>
+                <asp:Button ID="commentSend" runat="server" Text="Save" style="position:absolute; top: 143px; left: 258px; width: 67px;" OnClick="commentSend_Click"/>
+                <asp:Button ID="commentClear" runat="server" Text="Clear" style="position:absolute; top: 143px; left: 182px; width: 59px; right: 101px;" OnClick="commentClear_Click" />
+                <asp:TextBox ID="commentContent" runat="server" TextMode="MultiLine" style="position:absolute; top: 38px; left: 12px; width: 305px; height: 80px;"></asp:TextBox>
+            </div>
+        </div>
+        
     </form>
 </body>
 </html>

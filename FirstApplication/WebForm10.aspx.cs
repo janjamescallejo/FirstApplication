@@ -9,8 +9,8 @@ namespace FirstApplication
 {
     public partial class WebForm10 : System.Web.UI.Page
     {
-       
 
+        bool confirmAddress = false;
         UserAccount user;
         static List<Transaction> transactionItems = new List<Transaction>();
         Delivery delivery;
@@ -25,11 +25,21 @@ namespace FirstApplication
             {
                 ShowTransaction();
 
+
             }
             deliveryContent();
+            if (confirmAddress == false)
+            {
+                deliveryConfirm.Enabled = false;
+            }
+            else
+            {
+                deliveryConfirm.Enabled = true;
+            }
         }
         private void deliveryContent()
         {
+            
             String DeliveryContent;
 
             delivery = (Delivery)Session["Delivery"];
@@ -124,7 +134,12 @@ namespace FirstApplication
 
         protected void deliveryConfirm_Click(object sender, EventArgs e)
         {
+            //Something needs to be done here. 
+        }
 
+        protected void clearAddress_Click(object sender, EventArgs e)
+        {
+            deliveryAddress.Text = "";
         }
     }
 }

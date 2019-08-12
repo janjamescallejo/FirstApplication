@@ -449,6 +449,7 @@ namespace FirstApplication
         {
             List<Transaction> transactionItems = new List<Transaction>();
             string sql = "select * from usertransactions where transactionID=" + transactionID;
+            read = com.ExecuteReader();
             OpenDatabase();
             try {
                 
@@ -466,9 +467,82 @@ namespace FirstApplication
             finally
             {
                 CloseDatabase();
-               // return null;
+              
             }
             return transactionItems;
+        }
+        public void insertComment(Comment comment)
+        {
+            OpenDatabase();
+            string sql = "insert into productComments values('"+comment.CommentID+"','" + comment.UserID + "','" + comment.ProductID + "','" + comment.Datecreated.ToString("yyyy-MM-dd") + "'," + comment.Upvotes + "," + comment.Downvotes + ",'" + comment.CommentContent + "')";
+            try
+            {
+                com = new SqlCommand(sql, con);
+                com.ExecuteNonQuery();
+            }
+            finally
+            {
+                CloseDatabase();
+            }
+        }
+        public List<Comment> readComments(string productID)
+        {
+            List<Comment> comments = new List<Comment>();
+            string sql = "select * from productComments where productID='" + productID+"'";
+            OpenDatabase();
+            try
+            {
+
+                com = new SqlCommand(sql, con);
+                read = com.ExecuteReader();
+                while (read.Read())
+                {
+                    Comment comment = new Comment();
+                    comment.CommentID = Convert.ToString(read["commentID"]);
+                    comment.UserID = Convert.ToString(read["userID"]);
+                    comment.ProductID = Convert.ToString(read["productID"]);
+                    comment.Upvotes = Convert.ToInt32(read["upvoteCount"]);
+                    comment.Downvotes = Convert.ToInt32(read["downvoteCount"]);
+                    comment.CommentContent = Convert.ToString(read["commentContent"]);
+                    comment.Datecreated = Convert.ToDateTime(read["dateCreated"]);
+                    comments.Add(comment);
+
+                }
+            }
+            finally
+            {
+                CloseDatabase();
+
+            }
+            return comments;
+        }
+        public void upvoteComment(Comment comment)
+        {
+            OpenDatabase();
+            string sql = "update productComments set upvoteCount="+comment.Upvotes+" where commentID='"+comment.CommentID+"'";
+            try
+            {
+                com = new SqlCommand(sql, con);
+                com.ExecuteNonQuery();
+            }
+            finally
+            {
+                CloseDatabase();
+            }
+        }
+        public void downvoteComment(Comment comment)
+        {
+            OpenDatabase();
+            string sql = "update productComments set downvoteCount=" + comment.Downvotes + " where commentID='" + comment.CommentID + "'";
+            try
+            {
+                com = new SqlCommand(sql, con);
+                com.ExecuteNonQuery();
+            }
+            finally
+            {
+                CloseDatabase();
+            }
         }
         private void CloseDatabase()
         {

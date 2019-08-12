@@ -158,20 +158,23 @@ namespace FirstApplication
         protected void ItemNameA_Click(object sender, EventArgs e)
         {
             Session["ViewedProduct"] = ItemNameA.Text;
-            Page.ClientScript.RegisterStartupScript(
-this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
+            //Page.ClientScript.RegisterStartupScript(
+            //this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
+            Response.Redirect("WebForm8.aspx");
         }
         protected void ItemNameB_Click(object sender, EventArgs e)
         {
             Session["ViewedProduct"] = ItemNameB.Text;
-            Page.ClientScript.RegisterStartupScript(
-this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
+            // Page.ClientScript.RegisterStartupScript(
+            //this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
+            Response.Redirect("WebForm8.aspx");
         }
         protected void ItemNameC_Click(object sender, EventArgs e)
         {
             Session["ViewedProduct"] = ItemNameC.Text;
-            Page.ClientScript.RegisterStartupScript(
-this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
+            //Page.ClientScript.RegisterStartupScript(
+            //this.GetType(), "OpenWindow", "window.open('WebForm8.aspx','_newtab');", true);
+            Response.Redirect("WebForm8.aspx");
         }
     }
 }

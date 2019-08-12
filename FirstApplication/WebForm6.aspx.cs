@@ -298,7 +298,6 @@ namespace FirstApplication
                 count = temp.Count;
             }
 
-            //products = temp2.Distinct().ToList();
             products = temp2.Distinct().ToList();
             showProduct();
         }
